@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+
+    <body>
+        <ui:composition template="./../../template/principal.xhtml">
+            <ui:define name="content">
+                <div class="contenedor-padre">
+                    <section class="row" style="padding: 10px;"></section>
+                    <div class="main-panel-cabezote main-panel-cabezote">
+                        <h3 style="color: #FAFAFA;"><span class="icon-user"> M&oacute;dulo:  #{sesion.rolActual.rol}</span></h3>
+                    </div>
+                    <!-- ............................TABS PANEL ............................. -->
+                    <div class="panel-footer contenedor-modulo-header" style="background-color: white">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#home">Editar Usuarios</a></li>
+                            <li><a data-toggle="tab" href="#menu1">Listar Usuarios</a></li>            
+                        </ul> 
+                    </div>
+                    <!-- ........................................... -->
+
+                    <div class="tab-content contenedor-modulo"> <!-- .....contenedor modulo ......... -->
+                        <!-- .........|_| P A N E L -  0................ -->
+                        <div id="home" class="tab-pane fade in active">
+                            <section class="row container-fluid">
+                                <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div class="col-sx-3 col-sm-3 col-md-3 col-lg-3"></div>
+                                    <div class="col-sx-5 col-sm-5 col-md-5 col-lg-5">
+                                        <!-- .............1 Titulo ............. -->
+                                        <div class="decFormTitle">
+                                            <h3 class="text-center">Registrar Usuario</h3>
+                                            <div class="padding-vacio-txt"></div>
+                                        </div>  
+                                        <!-- ..............2 contenido ............ -->
+                                        <div class="decFormTitle">
+                                            <f:view>
+                                                <h:form enctype="multipart/form-data">
+                                                    <!--sumary y detail-->
+                                                    <p:messages id="mensajeinput" autoUpdate="false" ></p:messages>
+                                                    <p:messages  globalOnly="true" showDetail="true" showSummary="true" autoUpdate="true"/>                                                    
+                                                    <p:panelGrid columns="2">                                                                                          
+                                                        <p:outputLabel value="IdUsuario:" for="idUsuario" />
+                                                        <p:inputText  id="idUsuario" value="#{controllerUsuario.usuario.idUsuario}"  maxlength="10" title="IdUsuario" required="true" requiredMessage="La cedula es requirida." >
+                                                            <p:keyFilter regEx="/[\d\-]/"/>
+                                                        </p:inputText>                                                    
+                                                        <p:outputLabel value="PmrNombre:" for="pmrNombre" />
+                                                        <p:inputText id="pmrNombre" value="#{controllerUsuario.usuario.pmrNombre}" maxlength="15" title="PmrNombre" required="true" requiredMessage="El PmrNombre es requirido." validatorMessage="Formato Primer Nombre invalido. Sin numeros">
+                                                            <p:keyFilter regEx="/[ABC]/i"/>
+                                                        </p:inputText>                                                      
+                                                        <p:outputLabel value="SgdNombre:" for="sgdNombre" />
+                                                        <p:inputText id="sgdNombre" value="#{controllerUsuario.usuario.sgdNombre}" maxlength="15"  title="SgdNombre" >
+                                                            <p:keyFilter regEx="/[ABC]/i"/>
+                                                        </p:inputText>
+                                                        <p:outputLabel value="PmrApellido:" for="pmrApellido" />                                                       
+                                                        <p:inputText id="pmrApellido" value="#{controllerUsuario.usuario.pmrApellido}" maxlength="15" title="PmrApellido" required="true" requiredMessage="El Primer Apellido es requirido." validatorMessage="Formato Primer Apellido invalido. Sin numeros">
+                                                            <p:keyFilter regEx="/[ABC]/i"/>
+                                                        </p:inputText> 
+                                                        <p:outputLabel value="SgdApellido:" for="sgdApellido" />                                                                                                                                                                            
+                                                        <p:inputText id="sgdApellido" value="#{controllerUsuario.usuario.sgdApellido}" maxlength="15" title="SgdApellido"  required="true" requiredMessage="El Segundo Apellido es requirido."  validatorMessage="Formato Segundo Apellido invalido. Sin numeros">
+                                                            <p:keyFilter regEx="/[ABC]/i"/>
+                                                        </p:inputText>
+                                                        <p:outputLabel value="Alias" for="nombreCompleto" />
+                                                        <p:inputText id="nombreCompleto" value="#{controllerUsuario.usuario.nombreCompleto}" maxlength="45" title="NombreCompleto" validatorMessage="Formato Alias invalido.¡¡No digite números!!" required="true" requiredMessage="El Alias es requirido."> 
+                                                            <p:keyFilter regEx="/[ABC]/i"/>
+                                                        </p:inputText>
+                                                        <p:outputLabel value="Estado:" for="Estado" />                                                    
+                                                        <h:selectOneMenu id="Estado" class="form-control" value="#{controllerUsuario.usuario.estado}" title="Estado" required="true" requiredMessage="El Estado es requirido.">
+                                                            <f:selectItem itemValue = "A" itemLabel = "Activo" /> 
+                                                            <!-- <f:selectItem itemValue = "I" itemLabel = "Inactivo" /> -->
+                                                        </h:selectOneMenu> 
+
+                                                        <p:outputLabel value="Clave:" for="clave" />
+                                                        <p:password id="clave" value="#{controllerUsuario.usuario.clave}" maxlength="6" title="Clave"  feedback="true" promptLabel="Ingrese una clave"  weakLabel="Débil" strongLabel="Fuerte" goodLabel="Bueno" required="true" requiredMessage="La clave es requirida."/>
+
+
+                                                        <p:outputLabel value="Correo:" for="correo" />
+                                                        <p:inputText id="correo" value="#{controllerUsuario.usuario.correo}"  maxlength="45" title="Correo" required="true" requiredMessage="El Correo es requirido." validatorMessage="Formato email invalido. Ejemplo@hotmail.com "> 
+                                                            <f:validateRegex
+                                                                pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                                                        </p:inputText>
+                                                        <p:outputLabel value="FotoCedula:" for="fotoCedula" />
+
+                                                        <p:inputText id="fotoCedula" disabled="true" value="#{controllerUsuario.usuario.fotoCedula}" title="FotoCedula" />
+
+
+                                                        <p:outputLabel value="CodCargo:" for="codCargo" />
+                                                        <h:selectOneMenu id="codCargo" value="#{controllerUsuario.cargo.idCargo}" title="CodCargo" required="true" requiredMessage="El Cargo es requerido." class="form-control">
+                                                            <!-- TODO: update below reference to list of available items-->
+                                                            <f:selectItems value="#{controllerCargo.listarCargos()}" var="car" itemLabel="#{car.cargo}" itemValue="#{car.idCargo}"/>
+                                                        </h:selectOneMenu>
+
+                                                        <h:outputLabel value="" for="vacio" class="inputexth"/>
+                                                        <h:commandButton id="vacio" value="Modificar" action="#{controllerUsuario.editarUsuario()}" class="btn btn-primary"></h:commandButton>
+                                                    </p:panelGrid>   
+
+                                                </h:form>
+
+
+                                                <h:form enctype="multipart/form-data">
+                                                    <p:panelGrid columns="2">
+                                                        <h:inputFile value="#{controllerUsuario.file}"/>
+                                                        <p:outputLabel value="" for="subirArchivo" />
+                                                        <h:commandButton id="subirArchivo" class="btn btn-success" value="Subir Archivo" action="#{controllerUsuario.cargarArchivoCSV()}"/>
+                                                    </p:panelGrid>
+                                                </h:form>
+                                            </f:view>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sx-4 col-sm-4 col-md-4 col-lg-4"></div>
+                            </section> 
+                        </div>
+                        <!-- ::::::::::REGISTRAR ROL P A N E L  2 ::::::::::-->
+                        <!-- fade in active // muestra activo el panel-->
+                        <div id="menu1" class="tab-pane fade">
+                            <section class="row">
+                                <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div class="decFormTitle">
+                                        <h3 class="text-center">Listar Usuarios</h3>
+                                        <div class="padding-vacio-txt"></div>
+                                    </div>  
+                                    <f:view>
+                                        <h:form>                                
+                                            <p:dataTable value="#{controllerUsuario.listarUsuarios()}" var="user" paginator="true" rows="10">
+                                                <p:column filterBy="#{item.fotoCedula}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Foto"/>
+                                                    </f:facet>
+
+                                                    <p:graphicImage  url="#{controllerUsuario.usuario.fotoCedula}"></p:graphicImage>
+                                                </p:column>   
+                                                <p:column filterBy="#{user.idUsuario}" class="columnCenter">
+                                                    <f:facet name="header">                                                   
+                                                        <h:outputText value="Cedula"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{user.idUsuario}"/>
+                                                </p:column>
+                                                <p:column filterBy="#{user.pmrNombre}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Nombres"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{user.pmrNombre} #{item.sgdNombre}"/>
+                                                </p:column>                                      
+                                                <p:column filterBy="#{user.pmrApellido}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="PmrApellido"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{user.pmrApellido} #{item.sgdApellido}"/>
+                                                </p:column>                                        
+                                                <p:column filterBy="#{user.estado}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Estado"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{user.estado}"/>
+                                                </p:column>                                     
+                                                <p:column filterBy="#{user.correo}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Correo"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{user.correo}"/>
+                                                </p:column>                                                                                                                     
+                                                <p:column filterBy="#{user.codCargo.cargo}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="CodCargo"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{user.codCargo.cargo}"/>
+                                                </p:column>
+                                                <p:column  class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="CodCargo"/>
+                                                    </f:facet>
+                                                    <h:commandButton class="btn btn-primary" value="modificar" action="#{controllerUsuario.editarUsuarioUrl(user)}"></h:commandButton>
+                                                </p:column>
+                                            </p:dataTable>
+                                            <h:commandButton class="btn btn-danger" value="Generar Reporte" actionListener="#{controllerUsuario.PDF(actionEvent)}"></h:commandButton>
+                                        </h:form>
+                                    </f:view>
+
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <section class="row" style="padding: 10px;">
+                    </section>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

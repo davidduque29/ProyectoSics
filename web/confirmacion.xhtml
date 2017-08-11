@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <meta charset="UTF-8"></meta>
+        <title> Recuperar Clave </title>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"></meta>
+        <link rel="stylesheet" href="resources/css/font-awesome.css"></link>
+        <link rel="stylesheet" href="resources/css/bootstrap.css"></link>
+        <link rel="stylesheet" href="resources/css/bootstrap-table.css"></link>
+        <link rel="stylesheet" href="resources/css/sweetalert.css"></link>
+        <link rel="stylesheet" href="resources/css/estilos.css"></link>
+        <link rel="stylesheet" href="resources/css/fuentes_form.css"></link>
+
+        <!-- SCRIPTS -->
+        <!-- funciona para la barra de navegacion -->
+        <h:outputScript  name="js/jquery-2.2.3.js" ></h:outputScript >
+        <h:outputScript library="js" name="sweetalert.min.js"></h:outputScript>
+        <h:outputScript library="js" name="bootstrap.min.js"></h:outputScript>
+        <h:outputScript library="js" name="sidebar.js"></h:outputScript>
+        <script src="resources/js/credenciales.js"></script>
+
+    </h:head>
+    <h:body>
+
+
+        <section class="row banner">               
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+
+                <section class="row container-fluid">
+                    <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+                        <section class="row">
+                            <!-- ++++++++++++++++    2. LOGOTIPO     +++++++++++++++++ -->
+                            <div class="col-sx-3 col-sm-3 col-md-3 col-lg-3 extra-padding">
+
+                                <img src="resources/imgs/logo.png" class="img-responsive" alt="Imagen responsive"></img> 
+
+                            </div>
+                            <div class="col-sx-1 col-sm-1 col-md-1 col-lg-1 extra-padding">
+                            </div>
+                            <!-- ++++++++++++++++    3. TITULO     ++++++++++++++++++ -->
+                            <div class="col-sx-8 col-sm-8 col-md-8 col-lg-8 extra-padding  stroke1">
+                                <table>
+                                    <tr>
+                                        <!-- 	<td></td><td>SISTEMA  DE  INFORMACIÓN  PARA</td> -->
+                                    </tr> 
+                                    <tr> 
+                                        <img class="img-responsive" src="resources/imgs/Tipografia_sics.png" alt=""></img> 
+                                        <!-- <td></td><td>EL CONTROL Y SEGUIMIENTO  DE  LA PRODUCCIÓN</td> -->	
+                                    </tr>
+                                </table>  						  
+                            </div>
+                        </section>
+                    </div>
+                </section>	
+
+            </div>
+        </section>
+        <section class="row container-fluid">
+            <div class="col-sx-4 col-sm-4 col-md-4 col-lg-4">
+
+            </div>
+            <div class="col-sx-4 col-sm-4 col-md-4 col-lg-4 decFormTitle">
+                <section class="row">
+                    <div id="cuadro2">
+                        <h2 class="text-center titulo">Confirmacion</h2>
+                    </div>	
+                </section>		 		
+                <div class="decFormTitle" style="text-align: center;">                           
+
+
+                    <h2 style="color: green;">Para completar su solicitud por favor confirmar.</h2>
+                    <h:form>
+                        <h3> <h:commandLink value="confirmar" action="#{controllerObservaciones.confirmacionCorreo()}">
+                            </h:commandLink>
+                        </h3> 
+                    </h:form>
+                </div>	<!-- fin contendor login	 -->	                
+                <br></br>                          
+            </div>                         
+            <div class="col-sx-4 col-sm-4 col-md-4 col-lg-4">
+
+            </div>
+        </section>	
+    </h:body>
+</html>

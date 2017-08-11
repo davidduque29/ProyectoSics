@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+
+    <body>
+
+        <ui:composition template="./../../template/principal.xhtml">
+            <ui:define name="content">
+                <div class="contenedor-padre">
+                    <section class="row" style="padding: 10px;"></section>
+                    <div class="main-panel-cabezote main-panel-cabezote">
+                        <h3 style="color: #FAFAFA;"><span class="icon-user"> M&oacute;dulo:  #{sesion.rolActual.rol}</span></h3>
+                    </div>
+                    <!-- ............................TABS PANEL ............................. -->
+                    <div class="panel-footer  contenedor-modulo-header" style="background-color: white">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#home">Crear Pre Proceso</a></li>
+                            <li><a data-toggle="tab" href="#menu1">Crear Sub Proceso</a></li>            
+                        </ul> 
+                    </div>
+                    <!-- ........................................... -->
+
+                    <div class="tab-content" style="background-color: white;">
+                        <!-- .........|_| P A N E L -  0................ -->
+                        <div id="home" class="tab-pane fade in active">
+                            <section class="row"> 
+                                <div class="col-sx-1 col-sm-1 col-md-1 col-lg-1"></div>
+                                <div class="col-sx-4 col-sm-4 col-md-4 col-lg-4">
+                                    <!-- .............1 Titulo ............. -->
+                                    <div class="decFormTitle">
+                                        <h3 class="text-center">Crear Pre Proceso </h3>
+                                        <div class="padding-vacio-txt"></div>
+                                    </div>  
+                                    <!-- ..............2 contenido ............ -->
+                                    <div class="decFormTitle">
+                                        <f:view>
+                                            <h:form>
+                                                <p:panelGrid columns="2">
+                                                    <p:outputLabel value="IdPreProceso:" for="idPreProceso" />
+                                                    <p:inputText id="idPreProceso" disabled="true" value="#{controllerPreproceso.preProceso.idPreProceso}" title="IdPreProceso" required="true" requiredMessage="The IdPreProceso field is required."/>
+                                                    <p:outputLabel value="PreProceso:" for="preProceso" />
+                                                    <p:inputText id="preProceso" value="#{controllerPreproceso.preProceso.preProceso}" title="PreProceso" 
+                                                                 required="true" requiredMessage="The PreProceso field is required."
+                                                                 onkeypress=" this.value = (this.value + '').replace(/[^a-zA-Z\s]/g, '');" placeholder="Nombre Pre Proceso"/>
+                                                    <h:outputLabel value="" for="preproc" class="inputexth"/>
+                                                    <h:commandButton id="preproc" value="Registrar" action="#{controllerPreproceso.crearPreProcesos()}" class="btn btn-primary" ></h:commandButton>
+                                                </p:panelGrid>
+                                            </h:form>
+                                        </f:view>
+                                    </div>
+                                </div>
+                                <div class="col-sx-6 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="decFormTitle">
+                                        <h3 class="text-center">Listar Pre Proceso </h3>
+                                        <div class="padding-vacio-txt"></div>
+                                    </div>  
+                                    <!-- ..............2 contenido ............ -->
+                                    <div class="decFormTitle">
+                                        <h:form>
+                                            <p:dataTable value="#{controllerPreproceso.listarPreProceso()}" var="preproces" paginator="true" rows="5">
+                                                <p:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="IdPreProceso"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{preproces.idPreProceso}"/>
+                                                </p:column>
+                                                <p:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="PreProceso"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{preproces.preProceso}"/>
+                                                </p:column>
+                                            </p:dataTable>
+                                        </h:form>
+                                    </div>
+                                </div>
+                                <div class="col-sx-1 col-sm-1 col-md-1 col-lg-1"></div>
+                            </section>                     
+                        </div><!--fin div home-->
+
+                        <!-- fade in active // muestra activo el panel-->
+                        <div id="menu1" class="tab-pane fade  fade">
+                            <section class="row">
+                                 <div class="col-sx-1 col-sm-1 col-md-1 col-lg-1"></div>
+                                <div class="col-sx-4 col-sm-4 col-md-4 col-lg-4">
+                                    <div class="decFormTitle">
+                                        <h3 class="text-center">Crear Sub Proceso </h3>
+                                        <div class="padding-vacio-txt"></div>
+                                    </div>  
+                                    <!-- .................. contenido .................... --> 
+                                    <div class="decFormTitle"> 
+                                        <f:view>
+                                            <h:form>
+                                                <p:panelGrid columns="2">
+                                                    <p:outputLabel value="IdSubProceso:" for="idSubProceso" />
+                                                    <p:inputText id="idSubProceso" disabled="true" value="#{controllerSubProceso.subProceso.idSubProceso}" title="IdSubProceso" required="true" requiredMessage="The IdSubProceso field is required."/>
+                                                    <p:outputLabel value="SubProceso:" for="subProceso" />
+                                                    <p:inputText id="subProceso" value="#{controllerSubProceso.subProceso.subProceso}" title="SubProceso" 
+                                                                 required="true" requiredMessage="The SubProceso field is required."
+                                                                 onkeypress=" this.value = (this.value + '').replace(/[^a-zA-Z\s]/g, '');" placeholder="Nombre Sub Proceso"/>
+                                                    <p:outputLabel value="Estado:" for="estado" />
+                                                    <h:selectOneMenu id="estado" class="form-control" value="#{controllerSubProceso.subProceso.estado}" title="Estado" required="true" requiredMessage="El Estado es requirido.">
+                                                        <f:selectItem itemValue = "A" itemLabel = "Activo" /> 
+                                                        <!-- <f:selectItem itemValue = "I" itemLabel = "Inactivo" /> -->
+                                                    </h:selectOneMenu> 
+                                                    <p:outputLabel value="Formula:" for="formula" />                                                    
+                                                   <h:selectOneMenu id="formula" class="form-control" value="#{controllerSubProceso.subProceso.formula}" title="Formula" required="true" requiredMessage="La Fórmula es requirida.">
+                                                        <f:selectItem itemValue = "SI" itemLabel = "Si" /> 
+                                                         <f:selectItem itemValue = "NO" itemLabel = "No" /> 
+                                                    </h:selectOneMenu> 
+                                                    <h:outputLabel value="" for="subpro" class="inputexth"/>
+                                                    <h:commandButton id="subpro" value="Registrar" action="#{controllerSubProceso.crearSubProceso()}" class="btn btn-primary" ></h:commandButton>
+                                                </p:panelGrid>
+                                            </h:form>
+                                        </f:view>
+                                    </div>
+                                    <!-- ................................................................. -->
+                                </div><!-- fin 10 -->                                
+                                <div class="col-sx-7 col-sm-7 col-md-7 col-lg-7"> 
+                                    <div class="decFormTitle">
+                                        <h3 class="text-center">Listar Sub Proceso </h3>
+                                        <div class="padding-vacio-txt"></div>
+                                    </div>  
+                                    <!-- .................. contenido .................... --> 
+                                    <div class="decFormTitle">
+                                        <f:view>
+                                            <h:form>
+                                                <p:dataTable value="#{controllerSubProceso.listarSubproceso()}" var="subProceso">
+                                                    <p:column filterBy="#{subProceso.idSubProceso}" class="columnCenter">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="IdSubProceso"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{subProceso.idSubProceso}"/>
+                                                    </p:column>
+                                                    <p:column filterBy="#{subProceso.subProceso}" class="columnCenter">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="SubProceso"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{subProceso.subProceso}"/>
+                                                    </p:column>
+                                                    <p:column filterBy="#{subProceso.estado}" class="columnCenter">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Estado"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{subProceso.estado}"/>
+                                                    </p:column>
+                                                    <p:column filterBy="#{subProceso.formula}" class="columnCenter">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Formula"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{subProceso.formula}"/>
+                                                    </p:column>
+                                                    <p:column filterBy="#{subProceso.fechaCreacion}" class="columnCenter">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="FechaCreacion"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{subProceso.fechaCreacion}">
+                                                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                        </h:outputText>
+                                                    </p:column>
+                                                </p:dataTable>
+                                            </h:form>
+                                        </f:view>
+
+                                    </div> 
+                                </div>  
+                            </section>
+                        </div> <!--FIN menu1--> 
+
+                    </div>
+                    <!--FIN TAB CONTRENT-->   
+                </div>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

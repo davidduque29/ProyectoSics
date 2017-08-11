@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Login</title>
+        <meta charset="UTF-8"></meta>
+        <title> Formulario </title>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"></meta>
+        
+<!--        <h:outputStylesheet  name="css/font-awesome.css"></h:outputStylesheet>
+        <h:outputStylesheet  name="css/bootstrap.css"></h:outputStylesheet>
+        <h:outputStylesheet  name="css/bootstrap-table.css"></h:outputStylesheet>
+        <h:outputStylesheet  name="css/estilos.css"></h:outputStylesheet>
+        <h:outputStylesheet  name="css/login.css"></h:outputStylesheet>
+        <h:outputStylesheet  name="css/fuentes_form.css"></h:outputStylesheet>-->
+        
+        
+        <link rel="stylesheet" href="resources/css/font-awesome.css"></link>
+        <link rel="stylesheet" href="resources/css/bootstrap.css"></link>
+        <link rel="stylesheet" href="resources/css/bootstrap-table.css"></link>
+        <link rel="stylesheet" href="resources/css/sweetalert.css"></link>
+        <link rel="stylesheet" href="resources/css/estilos.css"></link>
+        <link rel="stylesheet" href="resources/css/login.css"></link>
+        <link rel="stylesheet" href="resources/css/fuentes_form.css"></link>
+
+        <!-- SCRIPTS -->
+        <!-- funciona para la barra de navegacion -->
+        <script src="resources/js/jquery-2.2.3.js"></script>
+        <script src="resources/js/bootstrap.min.js"></script>
+        <!-- fin funcion para la barra de navegacion -->
+        <script src="resources/js/sweetalert.min.js"></script>
+        <script src="resources/js/credenciales.js"></script>
+
+    </h:head>
+    <h:body id="fondologin">
+        <section class="row">               
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+
+                <section class="row container-fluid">
+                    <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="divseparador"></div>
+                    </div>
+                </section>	
+
+            </div>
+        </section>
+        <section class="row container-fluid">
+            <div class="col-sx-3 col-sm-3 col-md-3 col-lg-3">
+                <div id="cuadro">
+                    <h2 style="color: #E4217F;">CREDENCIALES</h2>
+
+                    <h:form>
+                        <h:commandButton  class="btn btn-success" value="Administrador" action="#{sesion.credenAdmin()}"></h:commandButton>
+                        <h:commandButton  class="btn btn-danger" value="Planeador" action="#{sesion.credenPlaneador}"></h:commandButton>
+                        <h:commandButton  class="btn btn-info" value="Gestor Material" action="#{sesion.credenGestorMaterial}"></h:commandButton>
+                        <h:commandButton  class="btn btn-primary" value="Gestor Produccion" action="#{sesion.credenGestorProd()}"></h:commandButton>
+                        <h:commandButton  class="btn btn-warning" value="Gestor Calidad" action="#{sesion.credenGestorCalidad()}"></h:commandButton>
+                    </h:form>
+                </div>
+            </div>
+            <div class="col-sx-6 col-sm-6 col-md-6 col-lg-6 decFormTitle container-fluid">
+
+
+                <div class="container-fluid">
+                    <div class="main-login-cabezote main-center-cabezote">
+                        <h2 class="text-center titulo">
+                            <img src="resources/imgs/logo.png" class="img-responsive" alt="Imagen responsive"></img> 
+                        </h2>
+                    </div>	                        	
+                    <div class="main-login main-center">
+                        <div class="decFormTitle" style="width: 100%;">
+
+                            <f:view>
+                                <h:form id="formulario" acceptcharset="UTF-8">   
+                                    <h2 class="text-inform"> <span class="glyphicon glyphicon-user"></span> 
+                                        Iniciar Sesión 
+                                    </h2>
+                                    <p style="text-align: center;"> 
+                                        Debes iniciar sesión para ingresar al sistema. 
+                                    </p>
+
+                                    <h:outputLabel value="Correo" for="correo"></h:outputLabel>
+                                    <div class="input-group margin-bottom-sm">
+
+                                        <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                                        <p:inputText class="form-control" placeholder="Ingrese su Usuario" id="correo" value="#{sesion.usuario.correo}" 
+                                            title="Correo" required="true" requiredMessage="El Correo es requirido." validatorMessage="Formato email invalido. Ejemplo@hotmail.com "> 
+                                            <f:validateRegex
+                                                pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                                        </p:inputText>                                      
+                                    </div>
+                                    <h:outputLabel value="Clave" for="clave"></h:outputLabel>
+                                    <div class="input-group">
+
+                                        <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                                        <p:inputText type="password" class="form-control" placeholder="Ingrese su Clave" id="clave" value="#{sesion.usuario.clave}" title="Clave" required="true"  requiredMessage="La clave es requerida" tabindex="2"/>
+                                    </div>
+
+                                    <p:outputLabel value="" for="btn" />
+                                    <h:commandButton id="btn" class="btn btn-success btn-group-justified btn-right" rendered="true"
+                                                     tabindex="3" value="Ingresar" action="#{sesion.logear()}" onmouseover="$(this).val('Ingresar a Sics');" onmouseout="$(this).val('Ingresar');">
+                                    </h:commandButton>  
+                                   
+                                </h:form>                                    
+                            </f:view>
+                        </div>	
+                    </div><!-- fin contendor login	 -->
+                    <div class="main-login-footer main-center-footer">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="text-align: center;">
+                                    <strong>
+                                        <h:link  id="olvide" style="text-decoration: none;" class="link-login" value="Regresar" outcome="index">
+                                            <span class="glyphicon glyphicon-home"></span>
+                                        </h:link>
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;">
+                                    <strong>
+                                        <h:link class="link-login" style="text-decoration: none;" value="Olvidé mi clave?" outcome="recuperarclave"></h:link>
+                                    </strong>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                </div>
+
+            </div>                         
+            <div class="col-sx-3 col-sm-3 col-md-3 col-lg-3">
+                <p:messages  globalOnly="true" showDetail="true" showSummary="true" autoUpdate="true"/>
+                <p:messages id="mensaje" autoUpdate="true"></p:messages>
+            </div>
+        </section>
+        <div class="divseparador"></div>
+    </h:body>
+</html>

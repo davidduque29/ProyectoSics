@@ -1,0 +1,72 @@
+
+.form_contacto{
+  background: rgba(0,0,0,0.01);
+  border: rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+#cuerpo_form{
+background-image: url(../imgs/contacto.png);
+background-repeat: no-repeat;
+background-attachment: fixed;
+	background-size: 100%;
+}
+table{
+	width: 100%;
+	height: 100%;
+}
+  	.coli{
+  	/*border: solid red 5px;*/
+	width: 100%;
+	height:100%;
+  	}
+  	.col_espacio{
+  		padding: 15px;
+  	}
+#cont_formulario{
+	background-image: url(../imgs/contacto.png);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100%;
+}
+  .espacio{
+		height: 50px;
+		padding: 10PX;
+  }
+  .prueba{
+  border: solid red 5px;
+  }
+ .border-form-top{
+	border-radius: 15px 15px 0px 0px;
+	-moz-border-radius: 15px 15px 0px 0px;
+	-webkit-border-radius: 15px 15px 0px 0px;
+  }
+   .border-form-bot{
+   	border: red 5px;
+	border-radius: 0px 0px 15px 15px;
+	-moz-border-radius: 0px 0px 15px 15px;
+	-webkit-border-radius: 0px 0px 15px 15px;
+  }
+
+  /* ::::::::::  4. SECCION 2  ::::::::::::: */	
+
+/* ::::::::::  5. SECCION 3  ::::::::::::: */
+
+/*imagen y texto cultura quala*/
+
+  	.sec-aside{
+  	border-radius: 35px;
+  	}
+  	.sec-right{
+  	background-color: rgba(0,0,2,0.1);
+  	/*background-color: #5e5eca;*/
+ }
+.terminos{
+	font-size: 0.7em;
+}
+.btn-margin{
+margin-left: 100px;
+}
+.fondo_form{
+	background-image: url(../imgs/form.jpg);
+}

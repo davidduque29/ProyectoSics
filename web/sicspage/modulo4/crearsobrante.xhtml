@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+
+    <body>
+        <ui:composition template="./../../template/principal.xhtml">
+            <ui:define name="content">
+                <div class="contenedor-padre">
+                    <section class="row" style="padding: 10px;"></section>
+                    <div class="main-panel-cabezote main-panel-cabezote">
+                        <h3 style="color: #FAFAFA;"><span class="icon-user"> M&oacute;dulo:  #{sesion.rolActual.rol}</span></h3>
+                    </div>
+                    <!-- ............................TABS PANEL ............................. -->
+                    <div class="panel-footer  contenedor-modulo-header" style="background-color: white">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#home">Crear Sobrantes</a></li>
+                            <li><a data-toggle="tab" href="#menu1">Listar Sobrantes</a></li>            
+                        </ul> 
+                    </div>
+                    <!-- ........................................... -->
+
+                    <div class="tab-content contenedor-modulo"> <!-- .....contenedor modulo ......... -->
+                        <!-- .........|_| P A N E L -  0................ -->
+                        <div id="home" class="tab-pane fade in active">
+                            <section class="row">
+                                <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+
+
+                                    <!-- .............1 Titulo ............. -->
+                                    <div class="decFormTitle">
+                                        <h3 class="text-center">Registrar Menus </h3>
+                                        <div class="padding-vacio-txt"></div>
+                                    </div>  
+                                    <!-- ..............2 contenido ............ -->
+                                    <div class="decFormTitle">
+                                        <h:form>
+                                            <p:messages id="message" autoUpdate="true" showDetail="true"></p:messages>
+                                            <p:panelGrid columns="2">                                                
+                                                <p:outputLabel value="Estado:" for="estado" />
+                                                <p:inputText id="estado" value="#{controllerSobrante.sobrante.estado}" title="Estado" class="inputLetras" required="true" requiredMessage="El Estado es un campo requerido."/>
+                                                <p:outputLabel value="Cantidad:" for="cantidad" />
+                                                <p:inputText id="cantidad" value="#{controllerSobrante.sobrante.cantidad}" title="Cantidad" required="true" requiredMessage="La Cantidad es un campo requerido."/>
+                                                <p:outputLabel value="Cod Produccion:" for="codProduccion" />
+                                                <h:selectOneMenu id="codProduccion" class="form-control" value="#{controllerSobrante.produccion.idProduccion}" required="true" requiredMessage="El Cod Produccion es un campo requerido.">
+                                                    <!-- TODO: update below reference to list of available items-->
+                                                    <f:selectItems value="#{controllerProduccion.listarProduccion()}" var="pro" itemLabel="#{pro.idProduccion}" itemValue="#{pro.idProduccion}"/>
+                                                </h:selectOneMenu>
+                                                <p:outputLabel value="Cod StockMaterial:" for="codStockMaterial" />
+                                                <h:selectOneMenu id="codStockMaterial" class="form-control" value="#{controllerSobrante.stockmaterial.idStockMaterial}" required="true" requiredMessage="El Cod StockMaterial es un campo requerido.">
+                                                    <!-- TODO: update below reference to list of available items-->
+                                                    <f:selectItems value="#{controllerMaterial.listarMateriales()}" var="mat" itemLabel="#{mat.idStockMaterial}" itemValue="#{mat.idStockMaterial}"/>
+                                                </h:selectOneMenu>
+                                                <p:outputLabel value="" for="btnRegSol" />
+                                                <h:commandButton id="btnRegSol" value="Registrar" class="btn btn-primary btn-right" action="#{controllerSobrante.crearSobrante()}"></h:commandButton>
+                                            </p:panelGrid>
+                                        </h:form>
+
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <!-- ::::::::::REGISTRAR ROL P A N E L  2 ::::::::::-->
+                        <!-- fade in active // muestra activo el panel-->
+                        <div id="menu1" class="tab-pane fade  fade in active">
+                            <section class="row">
+                                <div class="col-sx-1 col-sm-1 col-md-1 col-lg-1"> </div>   
+                                <div class="col-sx-10 col-sm-10 col-md-10 col-lg-10">
+                                    <div class="decFormTitle">
+                                        <h3 class="text-center">Listar Sobrantes</h3>
+                                        <div class="padding-vacio-txt"></div>
+                                    </div>  
+                                    <!-- .................. contenido .................... --> 
+                                    <div class="decFormTitle"> 
+                                        <f:view>
+                                            <h:form>
+                                                <p:dataTable value="#{controllerSobrante.listarSobrante()}" var="sob" paginator="true" rows="10" >
+                                                    <p:column class="columnCenter" filterBy="#{sob.idSobrante}">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Id Sobrante"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{sob.idSobrante}"/>
+                                                    </p:column>
+                                                    <p:column class="columnCenter" filterBy="#{sob.estado}">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Estado"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{sob.estado}"/>
+                                                    </p:column>
+                                                    <p:column class="columnCenter" filterBy="#{sob.cantidad}">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Cantidad"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{sob.cantidad}"/>
+                                                    </p:column>
+                                                    <p:column class="columnCenter" filterBy="#{sob.fechaCreacion}">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Fecha Creacion"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{sob.fechaCreacion}">
+                                                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                        </h:outputText>
+                                                    </p:column>
+                                                    <p:column class="columnCenter" filterBy="#{sob.codProduccion}">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Cod Produccion"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{sob.codProduccion.idProduccion}"/>
+                                                    </p:column>
+                                                    <p:column class="columnCenter" filterBy="#{sob.codStockMaterial}">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Cod Stock Material"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{sob.codStockMaterial.idStockMaterial}"/>
+                                                    </p:column>
+                                                </p:dataTable>
+                                            </h:form>
+                                        </f:view>
+                                    </div>
+                                    <!-- ................................................................. -->
+                                </div><!-- fin div col md5 LISTAR--> 
+                                <div class="col-sx-1 col-sm-1 col-md-1 col-lg-1"> </div>   
+                            </section>
+                        </div>
+                    </div>
+                    <!--FIN TAB CONTRENT-->
+                </div>                        
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

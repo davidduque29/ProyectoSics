@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportesobrantes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="57d33502-678d-4431-96de-1c39dde65177">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[	SELECT st.material, s.codStockMaterial as id, 
+			Count(s.codStockMaterial) as repetido 
+FROM 	sobrante as s inner join StockMaterial as st
+		on st.idStockMaterial= s.codStockMaterial
+where codStockMaterial = 1
+GROUP BY codStockMaterial 
+HAVING Count(codStockMaterial) 
+ORDER BY Count(codStockMaterial) DESC]]>
+	</queryString>
+	<field name="material" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="repetido" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="18" y="12" width="364" height="67" uuid="4b8b0a14-e31f-435d-8fdb-a189967d4492"/>
+				<textElement>
+					<font size="32"/>
+				</textElement>
+				<text><![CDATA[Reporte Total Sobrantes]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="12" backcolor="#6600FF" uuid="d4e6a097-3362-4e5e-b553-25de793602cc"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="-1" y="67" width="555" height="12" backcolor="#6600FF" uuid="c40fdfaf-c603-4335-97d2-1fd6d9818216"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<image>
+				<reportElement x="412" y="17" width="120" height="57" uuid="ad7f6fe0-2333-4f60-b425-23ef1569b6ae"/>
+				<imageExpression><![CDATA["C:\\Users\\ivandavid\\Desktop\\SicsProject\\backup\\sics\\web\\sicspage\\reporte\\imgs\\logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="79" y="0" width="114" height="20" uuid="944d7a4b-5fc2-4a84-be66-151ff060eb91"/>
+				<text><![CDATA[material]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="251" y="0" width="100" height="20" uuid="ccf6666f-9935-47e2-999a-189b28e0fb59"/>
+				<text><![CDATA[cantidad]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
+			<textField>
+				<reportElement x="79" y="0" width="114" height="20" uuid="88f58694-52f4-4c01-9eab-006d287af242"/>
+				<textFieldExpression><![CDATA[$F{material}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="251" y="0" width="100" height="20" uuid="3886aa74-6bd1-4919-a680-79814ee29d0c"/>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="283" splitType="Stretch">
+			<pie3DChart>
+				<chart>
+					<reportElement x="42" y="14" width="469" height="256" uuid="c289a6c9-7828-45de-b8ca-49b6fb44132d"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{material}]]></keyExpression>
+					<valueExpression><![CDATA[$F{cantidad}]]></valueExpression>
+					<labelExpression><![CDATA[$F{material}]]></labelExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+		</band>
+	</summary>
+</jasperReport>

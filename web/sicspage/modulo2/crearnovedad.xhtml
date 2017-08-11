@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../template/principal.xhtml">
+
+            <ui:define name="content">
+                <div class="contenedor-padre">
+                    <section class="row" style="padding: 10px;"></section>
+                    <div class="main-panel-cabezote main-panel-cabezote">
+                        <h3 style="color: #FAFAFA;"><span class="icon-user"> M&oacute;dulo:  #{sesion.rolActual.rol}</span></h3>
+                    </div>
+                    <!-- ............................TABS PANEL ............................. -->
+                    <div class="panel-footer contenedor-modulo-header" style="background-color: white">
+                        <ul class="nav nav-tabs">
+                            <li><a data-toggle="tab" href="#home">Crear Novedad</a></li>
+                            <li class="active"><a data-toggle="tab" href="#menu1">Listar Novedad</a></li>                          
+                        </ul> 
+                    </div>
+                    <!-- ........................................... -->
+
+                    <div class="tab-content contenedor-modulo"> <!-- .....contenedor modulo ......... -->
+                        <!-- .........|_| P A N E L -  0................ -->
+                        <div id="home" class="tab-pane">
+                            <section class="row">
+                                <div class="col-sx-4 col-sm-4 col-md-4 col-lg-4"></div>
+                                <div class="col-sx-4 col-sm-4 col-md-4 col-lg-4">
+                                                                        <div class="decFormTitle">
+                                        <h3 class="text-center">Registrar Novedad Quala</h3>
+                                        <div class="padding-vacio-txt"></div>
+                                    </div>     
+                                    <!-- .................. contenido .................... --> 
+                                    <div class="decFormTitle">
+                                        <f:view>
+                                            <h:form>
+                                                <p:messages id="mensajeRol" autoUpdate="true"></p:messages>  
+                                                <p:panelGrid columns="2">                                                   
+                                                    <p:outputLabel value="Novedad:" for="novedad" />
+                                                    <p:inputText id="novedad" value="#{controllerNovedad.novedad.novedad}" title="Novedad" required="true" requiredMessage="El Campo Novedad es Requerido."/>
+                                                    <p:outputLabel value="Tipo:" for="tipo" />
+                                                    <p:inputText id="tipo" value="#{controllerNovedad.novedad.tipo}" title="Tipo" required="true" requiredMessage="El Campo Tipo es Requerido."/>
+                                                    <p:outputLabel value="Fecha Novedad:" for="fechaNovedad" />
+                                                    <p:inputText id="fechaNovedad" value="#{controllerNovedad.novedad.fechaNovedad}" title="FechaNovedad" required="true" requiredMessage="El Campo Fecha Novedad es Requerido.">
+                                                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                                    </p:inputText>
+                                                    <p:outputLabel value="Usuario:" for="codUsuario" />
+                                                    <h:selectOneMenu id="codUsuario" value="#{controllerNovedad.usuario.idUsuario}" class="form-control"  required="true" requiredMessage="El Campo cod Usuario es Requerido.">
+                                                        <!-- TODO: update below reference to list of available items-->
+                                                        <f:selectItems value="#{controllerUsuario.listarUsuarios()}" var="usuario" itemLabel="#{usuario.pmrNombre}" itemValue="#{usuario.idUsuario}"/>
+                                                    </h:selectOneMenu>
+                                                    <p:outputLabel value="" for="btnRol" />
+                                                    <h:commandButton id="btnRol" value="Registrar" action="#{controllerNovedad.crearNovedad()}" class="btn btn-primary"></h:commandButton>
+                                                </p:panelGrid>
+
+                                            </h:form>
+                                        </f:view>
+
+                                    </div> 
+                                </div>
+                            </section>
+                        </div>
+                        <!-- ::::::::::REGISTRAR ROL P A N E L  2 ::::::::::-->
+                        <!-- fade in active // muestra activo el panel-->
+                        <div id="menu1" class="tab-pane fade  fade in active">
+                            <section class="row">
+                                <div class="col-sx-1 col-sm-1 col-md-1 col-lg-10"></div>
+                                <div class="col-sx-4 col-sm-4 col-md-4 col-lg-4">
+ 
+                                </div><!-- ........... FIN REGISTRAR ROL ............. --> 
+
+                                <div class="col-sx-5 col-sm-5 col-md-5 col-lg-8">
+                                    <div class="decFormTitle">
+                                        <h3 class="text-center">Listar Novedades Quala</h3>
+                                        <div class="padding-vacio-txt"></div>
+                                    </div>  
+                                    <!-- .................. contenido .................... --> 
+                                    <div class="decFormTitle">                                      
+
+                                        <f:view>
+
+
+                                            <h:form>
+
+                                                <p:dataTable value="#{controllerNovedad.listarNovedades()}" var="novedad" paginator="true" rows="7">
+                                                    <p:column filterBy="#{novedad.idNovedad}" class="columnCenter">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="N° Novedad"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{novedad.idNovedad}"/>
+                                                    </p:column>
+                                                    <p:column filterBy="#{novedad.novedad}" class="columnCenter">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Novedad"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{novedad.novedad}"/>
+                                                    </p:column>
+                                                    <p:column filterBy="#{novedad.tipo}" class="columnCenter">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Tipo"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{novedad.tipo}"/>
+                                                    </p:column>
+                                                    <p:column filterBy="#{novedad.fechaNovedad}" class="columnCenter">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Fecha Novedad"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{novedad.fechaNovedad}">
+                                                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                                        </h:outputText>
+                                                    </p:column>
+                                                    <p:column filterBy="#{novedad.codUsuario.pmrNombre}" class="columnCenter">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Usuario"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{novedad.codUsuario.pmrNombre}"/>
+                                                    </p:column>
+
+
+
+                                                </p:dataTable>
+                                                <h:commandButton class="btn btn-danger" value="Reportes" actionListener="#{controllerNovedad.PDF(actionEvent)}"></h:commandButton>  
+
+                                            </h:form>
+                                        </f:view>
+
+
+
+                                    </div>
+                                    <!-- ................................................................. -->
+                                </div><!-- fin div col md4 LISTAR ROLES--> 
+                                <div class="col-sx-2 col-sm-2 col-md-2 col-lg-2"> </div>     
+                            </section>  <!-- fin de fila contenedora -->    
+                        </div><!-- fin P A N E L - 2 -->
+
+
+                    </div><!-- fin T A B - C O N T E N T-->   
+                    <section class="row" style="padding: 10px;"></section>
+                </div><!-- FIN  panel-default"-->
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

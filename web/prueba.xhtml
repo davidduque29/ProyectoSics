@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <section>
+            <div class="col-sm-12 col-lg-12"></div>
+            <f:view>
+                <h:form>
+                    <p:panelGrid columns="2" style="border-collapse: initial; border-collapse: separate; border-style: none;">
+                        <p:outputLabel value="IdCargo:" for="idCargo"/>
+                        <p:inputText  id="idCargo" value="#{controllerCargo.cargo.idCargo}" title="IdCargo" required="true" requiredMessage="The IdCargo field is required."/>
+                        <p:outputLabel value="Cargo:" for="cargo" />
+                        <p:inputText id="cargo" value="#{controllerCargo.cargo.cargo}" title="Cargo" required="true" requiredMessage="The Cargo field is required."/>
+                    </p:panelGrid>
+                </h:form>
+            </f:view>
+        </section>
+    </h:body>
+</html>
+

@@ -1,0 +1,177 @@
+
+body{
+    /*background-color: #9294d0; 
+    background-color: #b49ef5;*/
+}
+.sinpadding [class*="col-"] {
+    padding: 0;
+}
+
+/* ::::::: 1. Barra de navegacion ::::::: */
+
+.navbar-color{
+    background-color: black; 
+}
+.nav-content{
+    border: solid red 2px;
+    margin: 0 auto;
+    padding: 0 auto;
+    font-color: yellow;
+    background-color: black;
+}
+/*Efectos de los links*/
+.linked{
+    color: white;
+}
+li:hover{
+    font-color: yellow;
+    font-size: 1.2em;
+    border-radius: 35 35 0px 0px;
+    -moz-border-radius: 35 35 0px 0px;
+    -webkit-border-radius: 35 35 0px 0px;
+    border: 1px solid #ffffff;
+    height: 45px;
+    background-color: #000000;
+    transition: all 0.7s;
+}
+
+/* ::::::::::::  2. Banner  :::::::::::: */
+
+.art-tipo{
+    background-color: #ff00ff;
+}
+.art-logo{
+    background-color: red;
+    height: 100%;
+}
+#logo{
+    background-image:url(../imgs/logo.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 10px;
+    padding: 55px;
+}
+.banner{
+    /* Fondo del logo y titulo*/
+    padding: 20px;
+    background-image:url(../imgs/fondo2.png);
+}
+
+/* ::::::::::::  3. SECCION 1  :::::::::::: */
+
+header{
+    border: solid black 2px;
+    background-image: url(../imgs/seccion1.png);
+    background-size: 100%;
+}
+
+/*---- CONTENEDOR JUMBOTROM ---- */
+
+.contenedor-form-jumbo{
+    /*background-color: #b8bfe3;*/
+    background-image: url(../imgs/fondo_fase2.png);
+}
+.borde-jumbo{
+    border: solid red 8px;
+}
+/* ::::::::::  5. SECCION 3  ::::::::::::: */
+
+/*imagen y texto cultura quala*/
+.secciones{
+    /*background-color: #abade2;*/
+    background-image: url(../imgs/seccion1.png);
+    /*background-color: #8388ef;*/
+}
+.sec-aside{
+    border-radius: 35px;
+}
+.sec-right{
+    background-color: rgba(0,0,2,0.1);
+    /*background-color: #5e5eca;*/
+}
+img{
+    border: solid blue 3px;
+    background-size: 100%;
+    width: 100%;
+}
+
+/* ::::::::::   6. FOOTER   ::::::::::::: */
+
+.contenedor-footer{
+    background-image: url("../imgs/banner-redes.jpg");
+    /*border: solid white 2px;*/
+    border-radius: 26px 26px 0px 0px;
+    -moz-border-radius: 26px 26px 0px 0px;
+    -webkit-border-radius: 26px 26px 0px 0px;
+    /*background-color: #abade2;*/
+}
+/*Aqui cierra estilos sidebar de bootstip*/
+.copyright{
+    padding: 7px;
+    background-size: 100%;
+    background-image: url("../imgs/banner-redes.jpg");
+    /*background-color: rgba(0,0,0,0.3);*/
+    /*background-image: url("../imgs/banner-redes.jpg");*/
+    color: white;
+    /*background-color: red;*/
+}
+.cont-redes{
+    background-color: rgba(0,0,0,0.5);
+    background-size: 100%;
+    padding: 30px;
+}
+/*Estilo ICONOS*/
+.icon{
+    min-width: 10px;
+    width: 45%;
+    opacity: 0.5;
+}
+.icon:hover{
+    margin: 0;
+    width: 45.5%;
+    transition: 0.7s;
+    opacity: 0.9;
+}
+.redes{
+    background-size: 100%;
+    /*background-image: url("../imgs/banner-redes.jpg");*/
+    color: white;
+    padding: 20px;
+    opacity: 0.9;
+}
+
+/* :::::::::   7. DECORACION CONTENEDORES   :::::::::::: */
+
+.informativo{
+    background-image: url(../imgs/cont-info.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border: solid white 2px;
+    border-radius: 26px 26px 0px 0px;
+    -moz-border-radius: 26px 26px 0px 0px;
+    -webkit-border-radius: 26px 26px 0px 0px;
+    padding: 20px;
+}
+.info1{
+    background-image: url(../imgs/info.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border: solid white 2px;
+    border-radius: 26px 26px 0px 0px;
+    -moz-border-radius: 26px 26px 0px 0px;
+    -webkit-border-radius: 26px 26px 0px 0px;
+    padding: 20px;
+
+}
+.info2{
+    background-image: url(../imgs/info.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border: solid white 2px;
+    border-radius: 26px 26px 0px 0px;
+    -moz-border-radius: 26px 26px 0px 0px;
+    -webkit-border-radius: 26px 26px 0px 0px;
+    padding: 20px;
+}
+
+

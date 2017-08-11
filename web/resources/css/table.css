@@ -1,0 +1,25 @@
+*{
+	box-sizing: border-box;
+
+}
+body{
+	/*background-color: deepskyblue;*/
+	background-color:#0000ff;
+	/*padding: 20px;*/
+
+}
+.formulary{
+	border: 2px #00000f;
+	border-radius: 8px 8px 8px 8px;
+	/*margin: auto;*/
+}
+input{
+	border: 2px solid grey;
+	border-radius: 5px 5px 5px 5px;
+	margin: 12px; 
+	padding: 5px 20px;
+	width: 100%;
+}
+td{
+	/*border: 2px solid grey;*/
+}

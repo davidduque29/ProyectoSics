@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportemateriales" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a7965761-4b5a-45d6-9a36-288c7cf2b136">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="411"/>
+	<field name="codigoBarras" class="java.lang.String"/>
+	<field name="material" class="java.lang.String"/>
+	<field name="tipo" class="java.lang.String"/>
+	<field name="marca" class="java.lang.String"/>
+	<field name="peso" class="java.lang.Double"/>
+	<field name="alto" class="java.lang.Double"/>
+	<field name="ancho" class="java.lang.Double"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="cantidad" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="8" width="297" height="61" uuid="58e3ff32-b9d6-4083-9ba4-54373a5aeb7b"/>
+				<textElement>
+					<font size="32"/>
+				</textElement>
+				<text><![CDATA[Reporte Materiales]]></text>
+			</staticText>
+			<image>
+				<reportElement x="379" y="6" width="122" height="69" uuid="43476f12-cd27-4795-b095-1b1257bfb834"/>
+				<imageExpression><![CDATA["C:\\Users\\ivandavid\\Desktop\\SICS PROYECTO FULL\\JasperReport\\imgs\\logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="61" height="20" uuid="d1d67295-20dc-4473-8ac0-52aef6039842"/>
+				<text><![CDATA[codigoBarras]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="0" width="61" height="20" uuid="3ea7c0d0-679b-4874-96f5-a56d24a39ca9"/>
+				<text><![CDATA[material]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="122" y="0" width="61" height="20" uuid="eaa3dedd-d396-4927-880c-60394635368c"/>
+				<text><![CDATA[tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="0" width="61" height="20" uuid="5c45036b-54d4-45b1-aca2-f170849d2ffd"/>
+				<text><![CDATA[marca]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="244" y="0" width="61" height="20" uuid="56ac305d-2cf1-48ee-9906-4de003fedf57"/>
+				<text><![CDATA[peso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="305" y="0" width="61" height="20" uuid="4a3c206f-3acc-41e0-9d1b-59e30759474d"/>
+				<text><![CDATA[alto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="366" y="0" width="61" height="20" uuid="69f9d425-e78a-4945-979e-018531c737eb"/>
+				<text><![CDATA[ancho]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="427" y="0" width="61" height="20" uuid="8085561b-43cd-432f-bf71-7681eb7bac7e"/>
+				<text><![CDATA[descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="488" y="0" width="61" height="20" uuid="4d1a7d29-76c4-4250-97ac-59d76204b875"/>
+				<text><![CDATA[cantidad]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="61" height="20" uuid="31f1f430-b390-4245-a126-15d30d6c0a44"/>
+				<textFieldExpression><![CDATA[$F{codigoBarras}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="61" y="0" width="61" height="20" uuid="5d597aae-bff6-4c77-a3e9-d388388ef196"/>
+				<textFieldExpression><![CDATA[$F{material}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="0" width="61" height="20" uuid="79a10996-c7e7-47cf-b787-ccde5aa36316"/>
+				<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="183" y="0" width="61" height="20" uuid="3d446e91-c1d4-4598-8965-e26022bbd362"/>
+				<textFieldExpression><![CDATA[$F{marca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="244" y="0" width="61" height="20" uuid="a00f06e0-0fdd-427e-bd11-d6af62f6f9e1"/>
+				<textFieldExpression><![CDATA[$F{peso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="0" width="61" height="20" uuid="8f7867cf-1912-4018-a7cd-cc0a9ae01218"/>
+				<textFieldExpression><![CDATA[$F{alto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="366" y="0" width="61" height="20" uuid="401d4b17-f583-4680-8974-2ff1363d42b8"/>
+				<textFieldExpression><![CDATA[$F{ancho}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="427" y="0" width="61" height="20" uuid="62fc2c85-5cee-433d-a6e9-9065b5fa302a"/>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="488" y="0" width="61" height="20" uuid="8864575d-c8f9-4c84-9c6c-6df4ff7b590b"/>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="439" splitType="Stretch">
+			<pie3DChart>
+				<chart>
+					<reportElement x="20" y="47" width="529" height="295" uuid="10a327cf-0e08-4a97-82f2-275c9d40696e"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{cantidad}]]></keyExpression>
+					<valueExpression><![CDATA[$F{cantidad}]]></valueExpression>
+					<labelExpression><![CDATA[$F{material}]]></labelExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+		</band>
+	</summary>
+</jasperReport>

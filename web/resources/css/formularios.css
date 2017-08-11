@@ -1,0 +1,80 @@
+*{
+	box-sizing: border-box;
+ }
+ .form_titulo{
+ 	background: deepskyblue;
+ 	color: #fff;
+	padding: 20px;
+	text-align: center;
+	font-size:30px;
+	font-weight: 100px;
+	border-bottom: 5px solid crimson;
+ }
+ h1{
+ 	text-align: center;
+ 	color: #fff;
+ }
+ #cuadro2{
+  /*	background-image: url(../imgs/info.jpg);*/
+  	background-color:#603193;
+  	color: white;
+	border-radius: 0px 2px 2px 2px;
+	border: 2px solid #dddcde;
+  	padding: 10px 30px;
+	width: 95%;
+	max-width: 500px;
+	margin: auto;
+  	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+ }
+ .form-register{
+ 	background-color: white;
+ 	border: 2px solid grey;
+ 	border-radius: 7px 7px 1px 1px;
+	width: 95%;
+	max-width: 500px;
+	margin: auto;
+ }
+  .terminosForm{
+ 	background-color: white;
+ 	border: 2px solid grey;
+ 	border-radius: 1px 1px 7px 7px;
+	width: 95%;
+	max-width: 500px;
+	margin: auto;
+	padding: 10px 30px;
+ }
+  	.contenedor_input{
+  		padding: 30px 30px;
+  		display: flex;
+  		flex-wrap: wrap;
+  		justify-content: space-between;
+  }
+input{
+  border: 2px solid grey;
+  border-radius: 5px 5px 5px 5px;
+  margin: 12px; 
+  padding: 5px 20px;
+  width: 100%;
+}
+  .input-48{
+	width: 48%;
+  }
+   .input-100{
+	width: 100%;
+	border: 2px solid grey;
+	border-radius: 3px;
+  }
+  .btn-enviar{
+  	padding: 10px 30px;
+  	cursor:pointer;
+  }
+   .btn-enviar:active{
+	transform: scale(1.05);
+   }
+   .welli {
+	padding: 30px 80px 40px;
+	color: #000;
+}
+label{
+float: left;
+}

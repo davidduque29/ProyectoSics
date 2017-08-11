@@ -1,0 +1,201 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+
+    <body>
+        <ui:composition template="./../../template/principal.xhtml">
+            <ui:define name="content">
+                <div class="contenedor-padre">
+                    <section class="row" style="padding: 10px;"></section>
+                    <div class="main-panel-cabezote main-panel-cabezote">
+                        <h3 style="color: #FAFAFA;"><span class="icon-user"> M&oacute;dulo:  #{sesion.rolActual.rol}</span></h3>
+                    </div>
+                    <!-- ............................TABS PANEL ............................. -->
+                    <div class="panel-footer contenedor-modulo-header" style="background-color: white">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#home">nombre</a></li>
+                            <!--<li class="active"><a data-toggle="tab" href="#menu1">Registrar Rol</a></li>-->            
+                        </ul> 
+                    </div>
+                    <!-- ........................................... -->
+
+                    <div class="tab-content contenedor-modulo"> <!-- .....contenedor modulo ......... -->
+                        <!-- .........|_| P A N E L -  0................ -->
+                        <div id="home" class="tab-pane fade in active">
+                            <section class="row">
+                                <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div class="col-sx-1 col-sm-1 col-md-1 col-lg-1"></div>
+                                    <div class="col-sx-10 col-sm-10 col-md-10 col-lg-10">
+                                        <!-- .............1 Titulo ............. -->
+                                        <div class="decFormTitle">
+                                            <h3 class="text-center">Editar Material</h3>
+                                            <div class="padding-vacio-txt"></div>
+                                        </div>  
+                                        <!-- ..............2 contenido ............ -->
+                                        <div class="decFormTitle">
+                                            <f:view>
+                                                <h:form>
+                                                    <p:messages id="mensajeMate" autoUpdate="true"></p:messages>
+                                                    <p:panelGrid columns="4">
+                                                        <p:outputLabel value="IdStockMaterial:" for="idStockMaterial" />
+                                                        <p:inputText id="idStockMaterial" value="#{controllerMaterial.material.idStockMaterial}" disabled="true" title="IdStockMaterial"/>
+                                                        <p:outputLabel value="CodigoBarras:" for="codigoBarras" />
+                                                        <p:inputText id="codigoBarras" value="#{controllerMaterial.material.codigoBarras}" maxlength="12" title="CodigoBarras" 
+                                                                     required="true" requiredMessage="El IdStockMaterial es requerido." placeholder="ABC1234"/>
+                                                        <p:outputLabel value="Material:" for="material" />
+                                                        <p:inputText id="material" value="#{controllerMaterial.material.material}"  maxlength="20" title="Material" 
+                                                                     required="true" requiredMessage="El Material es requerido." placeholder="Nombre Material"
+                                                                     onkeypress=" this.value = (this.value + '').replace(/[^a-zA-Z\s]/g, '');"/>
+                                                        <p:outputLabel value="Tipo:" for="tipo" />
+                                                        <p:inputText id="tipo" value="#{controllerMaterial.material.tipo}" maxlength="20" class="inputLetras" title="Tipo" 
+                                                                     required="true" requiredMessage="El Tipo es requerido." 
+                                                                     onkeypress=" this.value = (this.value + '').replace(/[^a-zA-Z\s]/g, '');" placeholder="Tipo de Material"/>
+                                                        <p:outputLabel value="Marca:" for="marca" />
+                                                        <p:inputText id="marca" value="#{controllerMaterial.material.marca}" maxlength="10" title="Marca" 
+                                                                     required="true" requiredMessage="La Marca es requerida." placeholder="Marca"/>
+                                                        <p:outputLabel value="Peso:" for="peso" />
+                                                        <p:inputText id="peso" value="#{controllerMaterial.material.peso}" maxlength="8" title="Peso"  
+                                                                     onkeypress=" this.value = (this.value + '').replace(/[^0-9]/g, '');" placeholder="(Kg,Lb,Gr,L)"/>
+                                                        <p:outputLabel value="PesoMedida:" for="pesoMedida" />
+                                                        <h:selectOneMenu id="pesoMedida" class="form-control" value="#{controllerMaterial.material.pesoMedida}" title="PesoMedida" required="true" requiredMessage="la Unidad de Medida es requirida.">
+                                                            <f:selectItem itemValue = "mg" itemLabel = "Miligramos" /> 
+                                                            <f:selectItem itemValue = "g" itemLabel = "Gramos" /> 
+                                                            <f:selectItem itemValue = "kg" itemLabel = "Kilogramos" /> 
+                                                            <f:selectItem itemValue = "ml" itemLabel = "Mililitros" /> 
+                                                            <f:selectItem itemValue = "l" itemLabel = "Litros" /> 
+                                                            <f:selectItem itemValue = "lb" itemLabel = "Libras" /> 
+                                                            <f:selectItem itemValue = "kl" itemLabel = "Kilos" /> 
+                                                        </h:selectOneMenu>                                                     
+                                                        <p:outputLabel value="Alto:" for="alto" />
+                                                        <p:inputText id="alto" value="#{controllerMaterial.material.alto}" maxlength="8"  title="Alto" 
+                                                                     onkeypress=" this.value = (this.value + '').replace(/[^0-9]/g, '');" placeholder="cm"/>
+                                                        <p:outputLabel value="Ancho:" for="ancho" />
+                                                        <p:inputText id="ancho" value="#{controllerMaterial.material.ancho}"  maxlength="8" title="Ancho" 
+                                                                     onkeypress=" this.value = (this.value + '').replace(/[^0-9]/g, '');" placeholder="cm"/>
+                                                        <p:outputLabel value="Descripcion:" for="descripcion" />
+                                                        <p:inputTextarea id="descripcion" style="width: 100%" value="#{controllerMaterial.material.descripcion}" maxlength="45"  title="Descripcion" 
+                                                                         required="true" requiredMessage="La Descripcion es es requerida." placeholder="Especificación del Material"/>
+                                                        <p:outputLabel value="Cantidad:" for="cantidad" />
+                                                        <p:inputText id="cantidad" value="#{controllerMaterial.material.cantidad}" maxlength="5" class="inputNumeros" title="Cantidad" 
+                                                                     onkeypress=" this.value = (this.value + '').replace(/[^0-9]/g, '');" placeholder="Cantidad"/>
+                                                        <p:outputLabel value="Estado:" for="Estado" />                                                    
+                                                        <h:selectOneMenu id="Estado" class="form-control" value="#{controllerMaterial.material.estado}" >
+                                                            <f:selectItem itemValue = "A" itemLabel = "Activo" /> 
+                                                            <!-- <f:selectItem itemValue = "I" itemLabel = "Inactivo" /> -->
+                                                        </h:selectOneMenu>                     
+                                                        <p:outputLabel value="UsuarioRegistro:" for="usuarioRegistro" />
+                                                        <h:selectOneMenu id="usuarioRegistro" class="form-control" value="#{controllerMaterial.usuario.idUsuario}" required="true" requiredMessage="El UsuarioRegistro es requerido.">
+                                                            <!-- TODO: update below reference to list of available items-->
+                                                            <f:selectItems value="#{controllerUsuario.listarUsuarios()}" var="usu" itemLabel="#{usu.correo}" itemValue="#{usu.idUsuario}"/>
+                                                        </h:selectOneMenu>
+                                                        <p:outputLabel value="" for="btnMenuReg" />  
+                                                        <h:commandButton id="btnMenuReg" class="btn btn-success" value="Modificar" action="#{controllerMaterial.editarMaterial()}"></h:commandButton>
+                                                    </p:panelGrid>
+                                                </h:form>
+                                            </f:view>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+
+                                    <div class="decFormTitle">
+                                        <h3 class="text-center">Listar Materiales</h3>
+                                        <div class="padding-vacio-txt"></div>
+                                    </div>  
+                                    <!-- .................. contenido .................... --> 
+                                    <div class="decFormTitle"> 
+                                        <h:form>
+                                            <p:dataTable value="#{controllerMaterial.listarMateriales()}" var="material" paginator="true" rows="6">
+                                                <p:column filterBy="#{material.codigoBarras}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="CodigoBarras"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{material.codigoBarras}"/>
+                                                </p:column>
+                                                <p:column filterBy="#{material.material}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Material"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{material.material}"/>
+                                                </p:column>
+                                                <p:column filterBy="#{material.tipo}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Tipo"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{material.tipo}"/>
+                                                </p:column>
+                                                <p:column filterBy="#{material.marca}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Marca"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{material.marca}"/>
+                                                </p:column>
+                                                <p:column filterBy="#{material.peso}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Peso"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{material.peso}"/>
+                                                </p:column>
+                                                <p:column filterBy="#{material.pesoMedida}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="PesoMedida"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{material.pesoMedida}"/>
+                                                </p:column>
+                                                <p:column filterBy="#{material.alto}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Alto"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{material.alto}"/>
+                                                </p:column>
+                                                <p:column filterBy="#{material.ancho}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Ancho"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{material.ancho}"/>
+                                                </p:column>
+                                                <p:column filterBy="#{material.descripcion}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Descripcion"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{material.descripcion}"/>
+                                                </p:column>
+                                                <p:column filterBy="#{material.cantidad}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Cantidad"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{material.cantidad}"/>
+                                                </p:column>
+                                              <p:column class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Modificar"/>
+                                                    </f:facet>
+                                                    <h:commandButton actionListener="#{controllerMaterial.editarMaterialUrl(material)}" 
+                                                                     class="btn-sm btn-primary btn-block edit" value="Modificar">                                                                     
+                                                    </h:commandButton>                    
+                                                </p:column>
+                                            </p:dataTable>
+                                        </h:form>
+                                    </div>
+                                    <!-- ................................................................. -->
+                                </div><!-- fin div col md5 LISTAR--> 
+                            </section>
+                            <div class="col-sx-2 col-sm-2 col-md-2 col-lg-2"> </div>   
+                        </div>
+                    </div>                      
+                    <section class="row" style="padding: 10px;">
+                    </section>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

@@ -1,0 +1,385 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"></meta>
+        <meta name="description" content="Sistema de Información"></meta>
+        <meta name="keywords" content="html5, css3, diseño web"></meta>
+
+
+        <link rel="shortcut icon" href="../resources/imgs/Favicon/FAVICON_70X74-SICS9.png"></link>
+        <link rel="stylesheet" href="../../resources/css/estilosadmin.css"></link>   
+        <link rel="stylesheet" href="../../resources/css/jumbo.css"></link>
+        <link rel="stylesheet" href="../resources/css/fuentes-mod.css"></link>
+        <link rel="stylesheet" href="../../resources/css/bootstrap.min.css"></link>      
+        <link rel="stylesheet" href="../../resources/css/font-awesome.css"></link>
+        <link rel="stylesheet" href="../../resources/css/sweetalert.css"></link>
+        <link rel="stylesheet" href="../../resources/css/login.css"></link>
+        <link href="../../resources/css/menu.css" rel="stylesheet" type="text/css"/>
+        <!-- SCRIPTS -->
+
+        <!-- funciona para la barra de navegacion -->   
+        <h:outputScript target="head">
+            $ = jQuery;
+        </h:outputScript>
+        <!--<h:outputScript  name="js/jquery-2.2.3.js" ></h:outputScript >-->
+        <!--<h:outputScript library="js" name="jquary.js"></h:outputScript>-->
+        <h:outputScript library="js" name="sweetalert.min.js"></h:outputScript>
+        <h:outputScript library="js" name="bootstrap.min.js"></h:outputScript>
+        <h:outputScript library="js" name="sidebar.js"></h:outputScript>
+
+        <title>Template principal</title>
+    </h:head>
+
+    <h:body>
+        <f:event type="preRenderView" listener="#{sesion.validaSesion()}"/>
+        <ui:insert name="top">
+            <section class="row">               
+                <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+
+
+                </div>
+            </section>
+
+
+            <section class="row ">
+                <div class="col-sx-10 col-sm-10 col-md-10 col-lg-10 bannerFoto" >
+                    <h:form>
+                        <!--<nav class="navbar navbar-default">-->
+                        <div id="throbber" style="display:none; min-height:120px;"></div>
+                        <div id="noty-holder"></div>
+                        <div id="wrapper">
+                            <!-- Navigation -->
+                            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand">
+                                        <li><img src="../../resources/imgs/logobanner.png" class="img-responsive images" alt="Imagen responsive"></img>
+                                        </li>
+                                    </a>
+                                </div>
+                                <div class="collapse navbar-collapse navbar-ex1-collapse">  
+                                    <ul class="nav navbar-left top-nav"></ul>
+
+                                    <!-- Top Menu Items -->
+                                    <ul class="nav navbar-right top-nav">
+                                        <li><a href="#" data-placement="bottom" data-toggle="tooltip" >
+                                                <i class="fa fa-address-card-o" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <!--<i class="fa fa-bar-chart-o"></i>-->
+                                        <li class="dropdown">
+                                            <li><a href="#" data-placement="bottom" data-toggle="tooltip" ><i class="fa fa-user"></i>
+                                                </a>
+                                            </li>            
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cuenta Usuario <b class="fa fa-angle-down"></b></a>
+
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a href="#">
+                                                            <div id="panelUser" class="">
+                                                                <!--<p:graphicImage  url="#controllerUsuario.usuario.fotoCedula}"></p:graphicImage>-->
+                                                                <c:if test="#{sesion.rolActual.idRol == 1}">
+                                                                    <img src="../../resources/imgs/modulos/david.jpg" alt="foto" class="img-thumbnail imagesPerfil"></img>
+                                                                </c:if>
+                                                                <c:if test="#{sesion.rolActual.idRol == 2}">
+                                                                    <img src="../../resources/imgs/modulos/Giovanni.jpg" alt="foto" class="img-thumbnail img-responsive"></img>
+                                                                </c:if>
+                                                                <c:if test="#{sesion.rolActual.idRol == 3}">
+                                                                    <img src="../../resources/imgs/modulos/cesar.jpg" alt="foto" class="img-thumbnail img-responsive"></img>
+                                                                </c:if>
+                                                                <c:if test="#{sesion.rolActual.idRol == 4}">
+                                                                    <img src="../../resources/imgs/modulos/cesar.jpg" alt="foto" class="img-thumbnail img-responsive"></img>
+                                                                </c:if>
+                                                                <c:if test="#{sesion.rolActual.idRol == 5}">
+                                                                    <img src="../../resources/imgs/modulos/cesar.jpg" alt="foto" class="img-thumbnail img-responsive"></img>
+                                                                </c:if>
+                                                            </div>  
+                                                        </a>
+                                                    </li>
+                                                    <li><a href="#">
+                                                            <span style="text-align: center;"> #{sesion.usuario.pmrNombre} #{sesion.usuario.sgdNombre} #{sesion.usuario.pmrApellido}
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li><a href="#">cargo: #{sesion.usuarioSesion.codCargo.cargo}</a></li>
+                                                    <li class="divider"></li>                                           
+                                                    <li style="float: right;">
+                                                        <h4>
+                                                            <h:commandLink style=" text-decoration: none; color: red;" value="salir" action="#{sesion.cerrarSesion()}" >
+                                                                <i class="fa fa-fw fa-power-off"></i>
+                                                            </h:commandLink>
+                                                        </h4> 
+                                                    </li>
+                                                </ul>
+
+                                            </li>
+                                        </li>   
+                                    </ul>
+                                </div> 
+                            </nav>
+                        </div>
+                    </h:form>
+                </div><!-- /.container-fluid -->
+                <div class="col-sx-2 col-sm-2 col-md-2 col-lg-10 bannerFoto" >
+
+                </div>
+            </section>
+
+
+        </ui:insert>
+        <div>
+            <section class="row">
+                <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+                    <section class="row">
+                        <div id="left" class="col-sx-2 col-sm-2 col-md-2">
+                            <!--...............................................................................-->
+                            <ui:insert name="left">
+                                <!--: : : M E N U  D I N A M I C O : : :-->
+
+                                <nav class="navbar navbar-inverse navbar-fixed-bottom"  role="navigation">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                        <a class="navbar-brand linked text-link" href="#">Men&uacute;</a>
+                                    </div>
+
+                                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                        <h:form id="formulario-header">   
+                                            <ul class="nav navbar-nav side-nav">
+                                                <li>
+                                                    <a href="#" data-toggle="collapse" data-target="#submenu-2" style="color: deeppink; font-size: 1.5em;">
+                                                        <i class="fa fa-fw fa-user-plus"></i> Rol <i class="fa fa-fw fa-angle-down pull-right"></i>
+                                                    </a>
+                                                    <ul id="submenu-2" class="collapse">
+                                                        <c:if test="#{sesion.usuario.rolusuarioList.size()>1}">
+                                                            <li class="dropdown">
+                                                                <a style="font-size: 1.2em;" href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#rolmenu-1" role="button" aria-haspopup="true" aria-expanded="false">
+                                                                    Roles  <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                                                </a>
+                                                                <ul id="rolmenu-1" class="collapse">
+                                                                    <c:forEach items="#{sesion.usuario.rolusuarioList}" var="r">  
+                                                                        <c:if test="#{!sesion.rolActual.equals(r)}"> 
+                                                                            <li style="text-decoration: none; color: chartreuse; font-size: 1.2em;">
+                                                                                <i style="margin-right: 3px;" class="icon-user"></i> 
+                                                                                <h:commandLink style="text-decoration: none; color:  chartreuse;" action="#{sesion.cambiarRol(r.idRol)}" value="#{r.idRol.rol}"></h:commandLink>
+                                                                            </li>
+                                                                        </c:if>
+                                                                    </c:forEach>
+                                                                </ul>
+                                                            </li>
+                                                        </c:if>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="#" data-toggle="collapse" data-target="#submenu-1" style="color: deeppink; font-size: 1.5em;">
+                                                        <i class="fa fa-fw fa-search"></i> Men&uacute; Sics <i class="fa fa-fw fa-angle-down pull-right"></i>
+                                                    </a>
+                                                    <ul id="submenu-1" class="collapse">
+                                                        <c:forEach items="#{sesion.rolActual.permisorolList}" var="permiso">
+                                                            <!-- esto es tan largo porque se mapearon las tablas de relacion (intermedias muchos a muchos etc)-->
+                                                            <!--este if es para seleccionar solo los permisos que no tienen padre (primer nivel)-->
+
+                                                            <c:if test="#{empty permiso.codPermiso.menuPadre.idPermiso}">
+                                                                <!--caso1-->
+                                                                <!--si tampoco tiene hijos quiere decir que es un link directo-->
+                                                                <c:if test="#{empty permiso.codPermiso.permisoList}">
+                                                                    <li>
+                                                                        <a href="#{permiso.codPermiso.url}"><i class="#{permiso.codPermiso.icono}"></i> #{permiso.codPermiso.menu}</a>
+                                                                    </li>
+                                                                </c:if>
+                                                                <!--caso2-->
+                                                                <!--si tiene hijos -->
+                                                                <c:if test="#{not empty permiso.codPermiso.permisoList}">
+                                                                    <li class="dropdown" style="font-size: 1em;"> <!--tamaño menus-->                                                                   
+                                                                        <a  style="font-size: 1em;" href="#{permiso.codPermiso.url}"  data-target=".submenu-2" data-toggle="collapse" role="button" 
+                                                                            aria-haspopup="true" aria-expanded="false"><i class="#{permiso.codPermiso.icono}"></i> #{permiso.codPermiso.menu} <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                                                                        <ul  class="collapse submenu-2">
+                                                                            <!--pinta todos los hijos del permiso-->
+                                                                            <c:forEach items="#{permiso.codPermiso.permisoList}"  var="sp">
+                                                                                <c:if test="#{not empty sp.estado}">
+                                                                                    <li>
+                                                                                        <!--titulo submenus-->
+                                                                                        <a style="text-decoration: none; list-style: none; color: chartreuse; font-size: 1em;" href="#{sp.url}">
+                                                                                            <i class="#{sp.icono}"></i> #{sp.menu}
+                                                                                        </a>
+                                                                                    </li> 
+                                                                                </c:if>
+                                                                                <c:if test="#{empty sp.estado}">
+                                                                                    <li><a href=""></a></li> 
+                                                                                </c:if>
+                                                                            </c:forEach>
+                                                                        </ul>
+                                                                    </li>
+                                                                </c:if>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                    </ul>
+                                                </li>              
+                                            </ul>                                  
+                                        </h:form>
+                                    </div>
+                                </nav>
+                                <section class="extra-padding"></section>
+
+                            </ui:insert>
+                        </div>
+
+                        <div id="content" class="col-sx-10 col-sm-10 col-md-10">
+                            <ui:insert name="content">
+
+                            </ui:insert>
+                        </div>
+                    </section>
+                </div>
+            </section>  
+        </div>
+
+        <div id="bottom">
+            <ui:insert name="bottom">
+                <footer>
+                    <section class="row">   
+                        <div class="col-sx-4 col-sm-4 col-md-4 col-lg-4">
+                            
+                            <h:form>
+                                 
+           <p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+        <p:panelGrid id="display" columns="2" columnClasses="label,value">
+            <h:outputText value="Inline:" />
+            <h:outputText value="#{calendarView.date1}">
+                <f:convertDateTime pattern="MM/dd/yyyy" />
+            </h:outputText>
+ 
+            <h:outputText value="Popup:" />
+            <h:outputText value="#{calendarView.date2}">
+                <f:convertDateTime pattern="MM/dd/yyyy" />
+            </h:outputText>
+ 
+            <h:outputText value="Button:" />
+            <h:outputText value="#{calendarView.date3}">
+                <f:convertDateTime pattern="MM/dd/yyyy" />
+            </h:outputText>
+ 
+            <h:outputText value="Event:" />
+            <h:outputText value="#{calendarView.date4}">
+                <f:convertDateTime pattern="MM/dd/yyyy" />
+            </h:outputText>
+ 
+            <h:outputText value="German:" />
+            <h:outputText value="#{calendarView.date5}">
+                <f:convertDateTime pattern="MM/dd/yyyy" />
+            </h:outputText>
+ 
+            <h:outputText value="Restricted:" />
+            <h:outputText value="#{calendarView.date6}">
+                <f:convertDateTime pattern="MM/dd/yyyy" />
+            </h:outputText>
+ 
+            <h:outputText value="Multiple:" />
+            <h:outputText value="#{calendarView.date7}">
+                <f:convertDateTime pattern="MM/dd/yyyy" />
+            </h:outputText>
+ 
+            <h:outputText value="Effect:" />
+            <h:outputText value="#{calendarView.date8}">
+                <f:convertDateTime pattern="MM/dd/yyyy" />
+            </h:outputText>
+ 
+            <h:outputText value="Mask:" />
+            <h:outputText value="#{calendarView.date9}">
+                <f:convertDateTime pattern="MM/dd/yyyy" />
+            </h:outputText>
+ 
+            <h:outputText value="Datetime:" />
+            <h:outputText value="#{calendarView.date10}">
+                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+            </h:outputText>
+ 
+            <h:outputText value="Time:" />
+            <h:outputText value="#{calendarView.date11}">
+                <f:convertDateTime pattern="HH:mm" />
+            </h:outputText>
+        </p:panelGrid>
+    </p:dialog>
+                            </h:form>
+                        </div>
+                    </section>
+                    <section class="row">
+                           <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+                            <section class="row container-fluid copyright">
+                                <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                    <section class="row container-fluid">
+                                        <h5 class="titulo-footer"> Derechos reservados</h5>
+                                        <h3 class="color">©  2016 Quala  SA</h3>
+                                        <h6> Este sitio Web está optimizado para ser visualizado en navegadores Internet Explorer 9 o superior, Chrome, Safari y Firefox.</h6>
+
+                                    </section>
+                                </div>
+                            </section>
+                            <section class="row container-fluid cont-redes"> <!-- INICIO RED SOCIAL-->
+                                <div class="col-mx-12 col-sm-12 col-md-12 col-lg-12">
+                                    <section class="row container-fluid">
+
+                                        <div class="col-sx-4 col-sm-4 col-md-4 col-lg-4"></div>
+
+                                        <div class="col-sx-4 col-sm-4 col-md-4 col-lg-4">
+                                            <!--                                            <table>
+                                                                                            <tr>
+                                                                                                <td>
+                                                                                                    <a href="https:///www.facebook.com/fdquala/" target="_blank">
+                                                                                                        <img src="../../resources/icon/facebook-icon.png" class="icon img-responsive" alt="face"></img>
+                                                                                                    </a>
+                                                                                                </td>
+                                            
+                                                                                                <td>
+                                                                                                    <a href="https://www.linkedin.com/company" target="_blank">
+                                                                                                        <img src="../../resources/icon//linkedin-icon.png" class="icon img-responsive" alt="linkedin"></img>
+                                                                                                    </a>
+                                                                                                </td>
+                                            
+                                                                                                <td>
+                                                                                                    <a href="https://www.instagram.com/qualacolombia/" target="_blank">
+                                                                                                        <img src="../../resources/icon/instagram-icon.png" class="icon img-responsive" alt="instagram"></img>
+                                                                                                    </a>
+                                                                                                </td>
+                                            
+                                                                                                <td>
+                                                                                                    <a href="https://www.youtube.com/user/QualaSA" target="_blank">
+                                                                                                        <img src="../../resources/icon/Youtube-icon.png" class="icon img-responsive" alt="youtube"></img>
+                                                                                                    </a>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </table>							-->
+                                        </div>
+                                        <div class="col-sx-4 col-sm-4 col-md-4 col-lg-4"></div>
+                                    </section>
+                                </div>
+                            </section> <!-- FIN REDES SOCIALES -->					
+                        </div>
+                    </section> <!-- ***************  E. PIE DE PAGINA  ************** -->
+                </footer>
+            </ui:insert>
+        </div>   
+    </h:body>
+</html>
+

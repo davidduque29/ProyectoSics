@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportepreproduccion" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cfe17585-478f-4a5d-9fca-1f5c7f3da905">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="idPreProduccion" class="java.lang.Integer"/>
+	<field name="cantidad" class="java.lang.Integer"/>
+	<field name="pedido" class="java.lang.String"/>
+	<field name="codPreProceso" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="103" splitType="Stretch">
+			<staticText>
+				<reportElement x="303" y="39" width="199" height="42" uuid="dafbce00-81d8-4a66-8583-9b321b336893"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Preproduccion]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="12" y="4" width="100" height="20" uuid="dc7d8583-6674-4b2e-a1bb-f75c2c195d33"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="12" y="20" width="279" height="83" uuid="52ee2684-ac8f-4392-8481-f03695ed880d"/>
+				<imageExpression><![CDATA["C:\\Users\\ivandavid\\Documents\\NetBeansProjects\\sics2017\\web\\sicspage\\reporte\\imgs\\logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="111" height="20" uuid="7cf625cf-c77f-40c4-8f3b-ed8588eedfbe"/>
+				<text><![CDATA[idPreProduccion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="192" y="0" width="111" height="20" uuid="85c840ca-0fef-429a-a36f-4a13e82c6352"/>
+				<text><![CDATA[cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="0" width="111" height="20" uuid="0a41c0ee-4140-4210-9d94-ce1ae5c0c407"/>
+				<text><![CDATA[pedido]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="111" height="20" uuid="a42907f8-bc94-4375-8f61-8a8df53dadba"/>
+				<textFieldExpression><![CDATA[$F{idPreProduccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="0" width="111" height="20" uuid="6d86fe46-c162-4caf-89d1-d20466d2d804"/>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="376" y="0" width="111" height="20" uuid="b8e92c19-b1d6-47ed-a968-4c6f6e6eaab8"/>
+				<textFieldExpression><![CDATA[$F{pedido}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

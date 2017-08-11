@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <body>
+        <ui:composition template="./../../template/principal.xhtml">
+            <ui:define name="content">
+                <div class="contenedor-padre">
+                    <section class="row" style="padding: 10px;"></section>
+                    <div class="main-panel-cabezote main-panel-cabezote">
+                        <h3 style="color: #FAFAFA;"><span class="icon-user"> M&oacute;dulo:  #{sesion.rolActual.rol}</span></h3>
+                    </div>
+                    <!-- ............................TABS PANEL ............................. -->
+                    <div class="panel-footer  contenedor-modulo-header" style="background-color: white">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#home">Inicio</a></li>
+                            <!--<li class="active"><a data-toggle="tab" href="#menu1">Registrar Rol</a></li>-->            
+                        </ul> 
+                    </div>
+                    <!-- ........................................... -->
+
+                    <div class="tab-content contenedor-modulo"> <!-- .....contenedor modulo ......... -->
+                        <!-- .........|_| P A N E L -  0................ -->
+                        <div id="home" class="tab-pane fade in active">
+                            <section class="row">
+                                <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+                                    <h3>  Bienvenido a SICS</h3>
+                                    <div class="padding-vacio-txt"></div>
+                                    <img src="../../resources/imgs/fondogestor.png" alt="" class="images img-thumbnail"></img>
+                                </div>
+                            </section>
+                        </div>
+                        <!-- ::::::::::REGISTRAR ROL P A N E L  2 ::::::::::-->
+                        <!-- fade in active // muestra activo el panel-->
+                        <div id="menu1" class="tab-pane fade  fade in active">
+
+                        </div>
+                    </div>
+
+                </div>
+                <section class="row" style="padding: 10px;"></section>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                 <p:dataTable value="#{controllerMaterial.listaMateriales}" var="material" paginator="true" rows="6">
+                   <p:column filterBy="#{material.codigoBarras}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="CodigoBarras"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{material.codigoBarras}"/>
+                                                </p:column>
+                                                <p:column filterBy="#{material.material}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Material"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{material.material}"/>
+                                                </p:column>
+                                                <p:column filterBy="#{material.tipo}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Tipo"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{material.tipo}"/>
+                                                </p:column>
+                                                <p:column filterBy="#{material.marca}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Marca"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{material.marca}"/>
+                                                </p:column>
+                                                <p:column filterBy="#{material.peso}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Peso"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{material.peso}"/>
+                                                </p:column>
+                                                <p:column filterBy="#{material.alto}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Alto"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{material.alto}"/>
+                                                </p:column>
+                                                <p:column filterBy="#{material.ancho}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Ancho"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{material.ancho}"/>
+                                                </p:column>
+                                                <p:column filterBy="#{material.descripcion}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Descripcion"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{material.descripcion}"/>
+                                                </p:column>
+                                                <p:column filterBy="#{material.cantidad}" class="columnCenter">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Cantidad"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{material.cantidad}"/>
+                                                </p:column>
+                                            </p:dataTable>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

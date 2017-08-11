@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+        <ui:composition template="./../../template/principal.xhtml">
+            <ui:define name="content">
+                <div class="contenedor-padre">
+                    <section class="row" style="padding: 10px;"></section>
+                    <div class="main-panel-cabezote main-panel-cabezote">
+                        <h3 style="color: #FAFAFA;"><span class="icon-user"> M&oacute;dulo:  #{sesion.rolActual.rol}</span></h3>
+                    </div>
+                    <!-- ............................TABS PANEL ............................. -->
+                    <div class="panel-footer  contenedor-modulo-header" style="background-color: white">
+                        <ul class="nav nav-tabs">
+                            <li><a data-toggle="tab" href="#home">Inicio</a></li>
+                            <li class="active"><a data-toggle="tab" href="#menu1">Registrar Produccion</a></li>
+                        </ul> 
+                    </div>
+                    <!-- ........................................... -->
+
+                    <div class="tab-content contenedor-modulo"> <!-- .....contenedor modulo ......... -->
+                        <!-- .........|_| P A N E L -  0................ -->
+                        <div id="home" class="tab-pane">
+                            <section class="row">
+                                <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+                                    <h3>  Bienvenido a SICS</h3>
+                                    <div class="padding-vacio-txt"></div>
+                                    <img src="resources/imgs/fondo.png" alt="" class="images img-thumbnail"></img>
+                                </div>
+                            </section>
+                        </div>
+                        <!-- ::::::::::REGISTRAR ROL P A N E L  2 ::::::::::-->
+                        <!-- fade in active // muestra activo el panel-->
+                        <div id="menu1" class="tab-pane fade  fade in active">
+                            <section class="row">
+                                <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div class="col-sx-0 col-sm-0 col-md-0 col-lg-0"></div>
+                                    <div class="col-sx-4 col-sm-4 col-md-4 col-lg-4">
+                                        <div class="decFormTitle">
+                                            <h3 class="text-center">Registrar Produccion</h3>
+                                            <div class="padding-vacio-txt"></div>
+                                        </div>  
+                                        <!-- .................. contenido ....................   --> 
+                                        <div class="decFormTitle">
+                                            <h:form>
+                                                <p:panelGrid columns="2">                                                   
+                                                    <p:outputLabel value="Proceso:" for="proceso" />
+                                                    <p:inputText id="proceso" value="#{controllerProduccion.produccion.proceso}" title="Proceso" required="true" requiredMessage="The Proceso field is required."/>
+                                                    <p:outputLabel value="Estado:" for="estado" />
+                                                    <p:inputText id="estado" value="#{controllerProduccion.produccion.estado}" class="inputLetras" title="Estado" required="true" requiredMessage="The Estado field is required."/>
+                                                    <p:outputLabel value="Sobrante:" for="sobrante" />
+                                                    <p:inputText id="sobrante" value="#{controllerProduccion.produccion.sobrante}" class="inputLetras" title="Sobrante" />
+                                                    <p:outputLabel value="Aprobador:" for="aprobador" />
+                                                    <h:selectOneMenu id="aprobador" class="form-control" value="#{controllerProduccion.usuario.idUsuario}" required="true" requiredMessage="The Aprobador field is required.">
+                                                        <!-- TODO: update below reference to list of available items-->
+                                                        <f:selectItems value="#{controllerUsuario.listarUsuarios()}" var="user" itemLabel="#{user.pmrNombre}" itemValue="#{user.idUsuario}"/>
+                                                    </h:selectOneMenu>
+                                                    <p:outputLabel value="" for="btnRegSol" />
+                                                    <h:commandButton id="btnRegSol" value="Registrar" class="btn btn-primary btn-right" action="#{controllerProduccion.crearProduccion()}"></h:commandButton>
+                                                </p:panelGrid>
+                                            </h:form>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sx-8 col-sm-8 col-md-8 col-lg-8">
+                                        <div class="decFormTitle">
+                                            <h3 class="text-center">Listar Produccion</h3>
+                                            <div class="padding-vacio-txt"></div>
+                                        </div>  
+                                        <!-- .................. contenido .................... --> 
+                                        <div class="decFormTitle">                                      
+                                            <f:view>
+
+
+                                                <h:form>
+
+                                                    <p:dataTable value="#{controllerProduccion.listarProduccion()}" var="pro" paginator="true" rows="10">
+                                                        <p:column class="columnCenter" filterBy="#{pro.idProduccion}">
+                                                            <f:facet name="header">
+                                                                <h:outputText value="IdProduccion"/>
+                                                            </f:facet>
+                                                            <h:outputText value="#{pro.idProduccion}"/>
+                                                        </p:column>
+                                                        <p:column class="columnCenter" filterBy="#{pro.proceso}">
+                                                            <f:facet name="header">
+                                                                <h:outputText value="Proceso"/>
+                                                            </f:facet>
+                                                            <h:outputText value="#{pro.proceso}"/>
+                                                        </p:column>
+                                                        <p:column class="columnCenter" filterBy="#{pro.estado}">
+                                                            <f:facet name="header">
+                                                                <h:outputText value="Estado"/>
+                                                            </f:facet>
+                                                            <h:outputText value="#{pro.estado}"/>
+                                                        </p:column>
+                                                        <p:column class="columnCenter" filterBy="#{pro.sobrante}">
+                                                            <f:facet name="header">
+                                                                <h:outputText value="Sobrante"/>
+                                                            </f:facet>
+                                                            <h:outputText value="#{pro.sobrante}"/>
+                                                        </p:column>
+                                                        <p:column class="columnCenter" filterBy="#{pro.fechaCreacion}">
+                                                            <f:facet name="header">
+                                                                <h:outputText value="FechaCreacion"/>
+                                                            </f:facet>
+                                                            <h:outputText value="#{pro.fechaCreacion}">
+                                                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                                            </h:outputText>
+                                                        </p:column>
+                                                        <p:column class="columnCenter" filterBy="#{pro.aprobador}">
+                                                            <f:facet name="header">
+                                                                <h:outputText value="Aprobador"/>
+                                                            </f:facet>
+                                                            <h:outputText value="#{pro.aprobador.pmrNombre}"/>
+                                                        </p:column>
+                                                    </p:dataTable>
+                                                </h:form>
+                                            </f:view>
+
+                                        </div>                             
+                                    </div>   
+                                </div><!-- ........... FIN REGISTRAR ROL ............. --> 
+
+
+                                <div class="col-sx-0 col-sm-0 col-md-0 col-lg-0"> </div>     
+                            </section>  <!-- fin de fila contenedora -->    
+
+                        </div><!-- fin P A N E L - 2 -->
+
+
+                    </div><!-- fin T A B - C O N T E N T-->          
+                </div><!-- FIN  panel-default"-->
+
+                <section class="row" style="padding: 10px;"></section>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

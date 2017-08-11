@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+
+    <body>
+        <ui:composition template="./../../template/principal.xhtml">
+            <ui:define name="content">
+                <div class="contenedor-padre">
+                    <section class="row" style="padding: 10px;"></section>
+                    <div class="main-panel-cabezote main-panel-cabezote">
+                        <h3 style="color: #FAFAFA;"><span class="icon-user"> M&oacute;dulo:  #{sesion.rolActual.rol}</span></h3>
+                    </div>
+                    <!-- ............................TABS PANEL ............................. -->
+                    <div class="panel-footer  contenedor-modulo-header" style="background-color: white">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#home">Registrar Menus</a></li>
+                            <li><a data-toggle="tab" href="#menu1">Listar Menus</a></li>            
+                        </ul> 
+                    </div>
+                    <!-- ........................................... -->
+                    <div class="tab-content contenedor-modulo"> <!-- .....contenedor modulo ......... -->
+                        <!-- .........|_| P A N E L -  0................ -->
+                        <div id="home" class="tab-pane fade in active">
+                            <section class="row">
+                                <div class="col-sx-3 col-sm-3 col-md-3 col-lg-3"></div>
+                                <div class="col-sx-6 col-sm-6 col-md-6 col-lg-6">
+
+                                    <!-- .............1 Titulo ............. -->
+                                    <div class="decFormTitle">
+                                        <h3 class="text-center">Registrar Menus </h3>
+                                        <div class="padding-vacio-txt"></div>
+                                    </div>  
+                                    <!-- ..............2 contenido ............ -->
+                                    <div class="decFormTitle">
+                                        <f:view>
+                                            <h:form>   
+                                                <p:messages id="mensajepermiso" autoUpdate="true"></p:messages>
+                                                <p:panelGrid columns="2">                                                  
+                                                    <p:outputLabel value="Menu:" for="menu" />
+                                                    <p:inputText id="menu" value="#{controllerPermiso.permiso.menu}" title="Menu" />
+                                                    <p:outputLabel value="Icono:" for="icono" />
+                                                    <p:inputText id="icono" value="#{controllerPermiso.permiso.icono}" title="Icono" />
+                                                    <p:outputLabel value="Url:" for="url" />
+                                                    <p:inputText id="url" value="#{controllerPermiso.permiso.url}" title="Url"/>
+                                                    <p:outputLabel value="estado" for="estado" />                                                        
+                                                    <h:selectOneMenu id="estado" class="form-control" value="#{controllerPermiso.permiso.estado}" title="Estado" required="true" requiredMessage="El Estado es requirido.">
+                                                        <f:selectItem itemValue = "A" itemLabel = "Activo" /> 
+                                                        <!-- <f:selectItem itemValue = "I" itemLabel = "Inactivo" /> -->
+                                                    </h:selectOneMenu>                                                         
+                                                    <h:outputLabel value="MenuPadre:" for="menuPadre" />
+                                                    <h:selectOneMenu id="menuPadre" class="form-control" value="#{controllerPermiso.permiso.idPermiso}" >
+                                                        <!-- TODO: update below reference to list of available items-->
+                                                        <f:selectItems value="#{controllerPermiso.listarPermisos()}" var="per" itemLabel="#{per.menu}" itemValue="#{per.idPermiso}"/>
+                                                        <f:selectItem itemValue = "" itemLabel = "Ninguno" />
+                                                    </h:selectOneMenu>
+                                                    <h:outputLabel value="" for="vacio" class="inputexth"/>
+                                                    <h:commandButton value="Registrar" action="#{controllerPermiso.crearPermiso()}" class="btn btn-primary"></h:commandButton>
+                                                </p:panelGrid>
+                                            </h:form>
+                                        </f:view>
+                                        <h4>Ejemplo menu: </h4>
+                                        <h5>Ruta completa: /sics2017/faces/sicspage/modulo1/crearrol.xhtml</h5>
+                                        <p>Digita el numero del m&oacute;dulo y el nombre del mismo de la siguiente manera:</p>
+                                        <h4> 4/editarproduccion</h4>
+                                    </div>
+                                </div>
+                                <div class="col-sx-3 col-sm-3 col-md-3 col-lg-3"></div>
+                            </section>
+                        </div>
+
+                        <!-- ::::::::::REGISTRAR ROL P A N E L  2 ::::::::::-->
+                        <!-- fade in active // muestra activo el panel-->
+                        <div id="menu1" class="tab-pane fade">
+                            <section class="row">
+                                <div class="col-sx-1 col-sm-1 col-md-1 col-lg-1"> </div>   
+                                <div class="col-sx-10 col-sm-10 col-md-10 col-lg-10">
+                                    <div class="decFormTitle">
+                                        <h3 class="text-center">Listar Menus</h3>
+                                        <div class="padding-vacio-txt"></div>
+                                    </div>  
+                                    <!-- .................. contenido .................... --> 
+                                    <div class="decFormTitle"> 
+                                        <f:view>
+                                            <h:form>
+                                                <p:dataTable value="#{controllerPermiso.listarPermisos()}" var="permiso" paginator="true" rows="5">
+                                                    <p:column class="columnCenter" filterBy="#{permiso.idPermiso}">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="IdPermiso"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{permiso.idPermiso}"/>
+                                                    </p:column>
+                                                    <p:column class="columnCenter" filterBy="#{permiso.menu}">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Menu"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{permiso.menu}"/>
+                                                    </p:column>
+                                                    <p:column class="columnCenter" filterBy="#{permiso.url}">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Url"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{permiso.url}"/>
+                                                    </p:column>
+                                                    <p:column class="columnCenter" filterBy="#{permiso.estado}">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Estado"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{permiso.estado}"/>
+                                                    </p:column>
+                                                    <p:column class="columnCenter" filterBy="#{permiso.menuPadre.menu}">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="MenuPadre"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{permiso.menuPadre.menu}"/>
+                                                    </p:column>
+                                                </p:dataTable>
+                                            </h:form>
+                                        </f:view>   
+
+                                    </div>
+                                    <!-- ................................................................. -->
+                                </div><!-- fin div col md5 LISTAR--> 
+                                <div class="col-sx-1 col-sm-1 col-md-1 col-lg-1"> </div>   
+                            </section>
+                        </div>
+                    </div>
+                    <!--FIN TAB CONTRENT-->
+                    <section class="row" style="padding: 10px;">
+                    </section>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

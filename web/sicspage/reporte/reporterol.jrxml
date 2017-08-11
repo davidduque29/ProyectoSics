@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporterol" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d31ae069-2a38-417d-94c2-a115bfffc7aa">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="idRol" class="java.lang.Integer"/>
+	<field name="rol" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="27" y="14" width="203" height="48" uuid="b3d12da6-bc2a-42b2-b8e8-0845061726ec"/>
+				<textElement>
+					<font size="30" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Rol]]></text>
+			</staticText>
+			<image>
+				<reportElement x="408" y="14" width="129" height="53" uuid="80d432c8-cfe2-491e-864a-5e54913c7c4d"/>
+				<imageExpression><![CDATA["C:\\Users\\ivandavid\\Desktop\\SICS PROYECTO FULL\\JasperReport\\imgs\\logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="96" y="2" width="100" height="20" uuid="9d2914d5-a616-4941-84ef-838e033f04a9"/>
+				<text><![CDATA[idRol]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="265" y="0" width="100" height="20" uuid="be0b27ce-bb80-49dd-8718-4c64f7f62ca7"/>
+				<text><![CDATA[rol]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="60" splitType="Stretch">
+			<textField>
+				<reportElement x="96" y="24" width="100" height="20" uuid="d2e9bc29-2ad7-4455-9e46-c3f734336a71"/>
+				<textFieldExpression><![CDATA[$F{idRol}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="265" y="24" width="100" height="20" uuid="5833756d-4291-4863-9815-0ed4b6c45ac3"/>
+				<textFieldExpression><![CDATA[$F{rol}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <body>
+        <ui:composition template="./../../template/principal.xhtml">
+            <ui:define name="content">
+                <div class="contenedor-padre">
+                    <section class="row" style="padding: 10px;"></section>
+                    <div class="main-panel-cabezote main-panel-cabezote">
+                        <h3 style="color: #FAFAFA;"><span class="icon-user"> M&oacute;dulo:  #{sesion.rolActual.rol}</span></h3>
+                    </div>
+                    <!-- ............................TABS PANEL ............................. -->
+                    <div class="panel-footer contenedor-modulo-header" style="background-color: white">
+                        <ul class="nav nav-tabs">                           
+                            <li class="active"><a data-toggle="tab" href="#home">Crear Rol</a></li>
+                            <li><a data-toggle="tab" href="#menu1">Asignar Permiso Rol</a></li>
+                        </ul> 
+                    </div>
+                    <!-- ........................................... -->
+
+                    <div class="tab-content contenedor-modulo"> <!-- .....contenedor modulo ......... -->
+                        <!-- .........|_| P A N E L -  0................ -->
+                        <!-- ::::::::::REGISTRAR ROL P A N E L  2 ::::::::::-->
+                        <!-- fade in active // muestra activo el panel-->
+                        <div id="home" class="tab-pane fade  fade in active">
+                            <section class="row">
+                                <div class="col-sx-1 col-sm-1 col-md-1 col-lg-1"></div>
+                                <div class="col-sx-4 col-sm-4 col-md-4 col-lg-4">
+                                    <div class="decFormTitle">
+                                        <h3 class="text-center">Registrar Rol Quala</h3>
+                                        <div class="padding-vacio-txt"></div>
+                                    </div>     
+                                    <!-- .................. contenido .................... --> 
+                                    <div class="decFormTitle">
+                                        <f:view>
+                                            <h:form>
+                                                <p:messages id="mensajeRol" autoUpdate="true"></p:messages>
+                                                <p:panelGrid columns="2">   
+                                                    <p:outputLabel value="Rol:" for="rol" />
+                                                    <p:inputText id="rol" value="#{controllerRol.rol.rol}" maxlength="30" class="form-control inputLetras" title="Rol" required="true" requiredMessage="El Rol es requirido." placeholder="Nombre Rol">                                                                
+                                                        <p:keyFilter regEx="/[A-Z\s]/i"/>
+                                                    </p:inputText>
+                                                    <p:outputLabel value="" for="btnRol" />
+                                                    <h:commandButton id="btnRol" value="Registrar" action="#{controllerRol.crearRol()}" class="btn btn-primary"></h:commandButton>
+                                                </p:panelGrid>
+                                            </h:form>
+                                        </f:view>
+                                    </div>  
+                                </div><!-- ........... FIN REGISTRAR ROL ............. --> 
+
+                                <div class="col-sx-5 col-sm-5 col-md-5 col-lg-5">
+                                    <div class="decFormTitle">
+                                        <h3 class="text-center">Listar Roles</h3>
+                                        <div class="padding-vacio-txt"></div>
+                                    </div>  
+                                    <!-- .................. contenido .................... --> 
+                                    <div class="decFormTitle"> 
+
+                                        <h:form>
+                                            <p:dataTable id="roles" value="#{controllerRol.listarRoles()}" var="rol" paginator="true" rows="4"
+                                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} 
+                                                         {Exporters}" style="margin-bottom:20px">
+                                                <f:facet name="{Exporters}">
+                                                    <h:commandLink  actionListener="#{controllerRol.PDF(actionEvent)}" >
+                                                        <p:graphicImage value="../../resources/imgs/iconos/pdf.png" width="24" onmouseover="$('#mensaje').html('Reporte Pdf');" onmouseout="$('#mensaje').html('');"/>                                              
+                                                    </h:commandLink> 
+                                                </f:facet>
+                                                <p:column filterBy="#{rol.idRol}" >
+                                                    <f:facet name="header">
+                                                        <h:outputText value="IdRol"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{rol.idRol}"/>
+                                                </p:column>
+                                                <p:column filterBy="#{rol.rol}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Rol"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{rol.rol}"/>
+                                                </p:column>
+                                            </p:dataTable>
+                                        </h:form>
+                                    </div>
+                                    <!-- ................................................................. -->
+                                </div><!-- fin div col md4 LISTAR ROLES--> 
+                                <div class="col-sx-2 col-sm-2 col-md-2 col-lg-2"> </div>     
+                            </section>  <!-- fin de fila contenedora -->    
+                        </div><!-- fin Menu - home -->
+
+                        <div id="menu1" class="tab-pane fade">
+                            <section class="row">
+                                <div class="col-sx-4 col-sm-4 col-md-4 col-lg-4"></div>
+                                <div class="col-sx-4 col-sm-4 col-md-4 col-lg-4">
+                                    <div class="decFormTitle">
+                                        <h3 class="text-center">Asignar Permiso Rol</h3>
+                                        <div class="padding-vacio-txt"></div>
+                                    </div>     
+                                    <!-- .................. contenido .................... --> 
+                                    <div class="decFormTitle">
+                                        <f:view>
+                                            <h:form>
+                                                <p:panelGrid columns="2">                                                   
+                                                    <p:outputLabel value="CodPermiso:" for="codPermiso" />
+                                                    <h:selectOneMenu class="form-control" id="codPermiso" value="#{controllerPermisoRol.permisorol.codPermiso}" required="true" requiredMessage="The CodPermiso field is required.">
+                                                        <!-- TODO: update below reference to list of available items-->
+                                                        <f:selectItems value="#{controllerPermiso.listarPermisos()}" var="permiso" itemLabel="#{permiso.menu}" itemValue="#{permiso.idPermiso}"/>
+                                                    </h:selectOneMenu>
+                                                    <p:outputLabel value="CodRol:" for="codRol" />
+                                                    <h:selectOneMenu class="form-control" id="codRol" value="#{controllerPermisoRol.rol.idRol}" required="true" requiredMessage="The CodRol field is required.">
+                                                        <!-- TODO: update below reference to list of available items-->
+                                                        <f:selectItems value="#{controllerRol.listarRoles()}" var="rol" itemLabel="#{rol.rol}" itemValue="#{rol.idRol}"/>
+                                                    </h:selectOneMenu>
+                                                    <h:outputLabel value="" for="vacio" class="inputexth"/>
+                                                    <h:commandButton id="vacio" value="Asignar" action="#{controllerPermisoRol.crearPermisoRol()}" class="btn btn-primary" ></h:commandButton>
+                                                </p:panelGrid>
+                                            </h:form>
+                                        </f:view>
+                                    </div>
+                                    <!-- ................................................................. -->
+                                </div><!-- fin div col md4 LISTAR ROLES--> 
+                                <div class="col-sx-4 col-sm-4 col-md-4 col-lg-4"></div>   
+                            </section>  <!-- fin de fila contenedora -->    
+                        </div><!-- fin Menu - 1 -->
+                    </div><!-- fin T A B - C O N T E N E D O R  M O D U L O-->          
+
+                </div><!-- fin contenedor Padre -->
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

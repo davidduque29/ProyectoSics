@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteNovedades" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2ce5b52d-25a7-41ac-a9ac-4c1cadf45664">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="idNovedad" class="java.lang.Integer"/>
+	<field name="novedad" class="java.lang.String"/>
+	<field name="tipo" class="java.lang.String"/>
+	<field name="fechaNovedad" class="java.util.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="107" splitType="Stretch">
+			<staticText>
+				<reportElement x="304" y="48" width="235" height="33" uuid="180fac6e-5c7d-4701-a897-ee23697a8896"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Novedad]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="13" y="0" width="100" height="20" uuid="16b47852-4921-4226-802e-14cc257ebfd3"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="13" y="20" width="232" height="87" uuid="ac9bbe05-fdd3-480d-8782-c703d83e24dc"/>
+				<imageExpression><![CDATA["C:\\Users\\ivandavid\\Documents\\NetBeansProjects\\sics2017\\web\\sicspage\\reporte\\imgs\\logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="138" height="20" uuid="8631c015-e8f0-4e40-a961-199b36c5933d"/>
+				<text><![CDATA[idNovedad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="0" width="138" height="20" uuid="7acf91d0-ad30-4b40-9465-d7c2f6baeaaa"/>
+				<text><![CDATA[novedad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="0" width="138" height="20" uuid="35378e18-d6f0-40d9-9aa3-1f918ffa6fa6"/>
+				<text><![CDATA[tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="414" y="0" width="138" height="20" uuid="ce899986-0e1b-4e12-8128-a833f10d6e9d"/>
+				<text><![CDATA[fechaNovedad]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="138" height="20" uuid="9c16c3f8-0702-4a3b-a952-96ce2b77eebf"/>
+				<textFieldExpression><![CDATA[$F{idNovedad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="138" y="0" width="138" height="20" uuid="4a894eb9-e2fb-4cec-8f85-9c9b3edc91dc"/>
+				<textFieldExpression><![CDATA[$F{novedad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="0" width="138" height="20" uuid="e75606aa-95f2-4f64-822c-b371bbe8ae87"/>
+				<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="414" y="0" width="138" height="20" uuid="eb81cf9e-f13b-49d1-a771-9f9f95e6dc72"/>
+				<textFieldExpression><![CDATA[$F{fechaNovedad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

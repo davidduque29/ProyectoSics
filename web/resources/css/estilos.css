@@ -1,0 +1,134 @@
+
+body{
+	/*background-color: #9294d0; 
+	background-color: #b49ef5;*/
+}
+#fondologin{
+    background-image: url('../imgs/fondologin.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /*background-color: #122b40;*/
+}
+ /* ::::::: 1. Barra de navegacion ::::::: */
+
+.navbar-color{
+	background-color: black; 
+}
+/*Efectos de los links*/
+
+/* ::::::::::::  2. Banner  :::::::::::: */
+#login_form{
+  	background-color:#603193;
+  	color: white;
+	border-radius: 0px 2px 2px 2px;
+	border: 2px solid #dddcde;
+  	padding: 8px;
+  	box-shadow: 0 0 10px rgba(0,0,0,0.5)
+}
+.art-tipo{
+	  	background-color: #ff00ff;
+	}
+	.art-logo{
+	  	background-color: red;
+	  	height: 100%;
+	}
+	#logo{
+	  	background-image:url(../imgs/logo.png);
+	 	background-size: 100%;
+	 	background-repeat: no-repeat;
+	 	margin: 10px;
+	 	padding: 55px;
+	}
+.banner{
+	/* Fondo del logo y titulo*/
+	padding: 20px;
+        background-color: #122b40;
+	/*background-image:url(../imgs/fondo2.png);*/
+}
+/*.lista, li, a{
+	border: 2px grey;
+list-style: none;
+text-decoration: none;
+}
+.lista li :hover{
+	font-color: white;
+	font-size: 1.2em;
+	border-radius: 45 45 0px 0px;
+	-moz-border-radius: 35 35 0px 0px;
+	-webkit-border-radius: 35 35 0px 0px;
+	border: 1px solid #ffffff;
+	text-decoration: none;
+	list-style: none;
+	height: 20px;
+	transition: all 0.7s;*/
+.btn-widthi{
+	border: 2px blue;
+	height: 100px;
+width: 50%;
+background-color: red;
+}
+
+/* ::::::::::::  3. SECCION 1  :::::::::::: */
+
+header{
+	border: solid black 2px;
+	background-image: url(../imgs/seccion1.png);
+   	background-size: 100%;
+
+}
+ #cuadro{
+  /*	background-image: url(../imgs/info.jpg);*/
+  	/*background-color:#eee;*/
+	border-radius: 0px 2px 2px 2px;
+	border: 2px;
+  	padding: 25px;
+  	/*box-shadow: 0 0 10px rgba(0,0,0,0.5)*/
+  	}
+#cuadro2{
+  /*	background-image: url(../imgs/info.jpg);*/
+  	background-color:#603193;
+  	color: white;
+	border-radius: 0px 2px 2px 2px;
+	border: 2px solid #dddcde;
+  	padding: 5px;
+  	margin-top: 10px;
+  	box-shadow: 0 0 10px rgba(0,0,0,0.5)
+  	}
+
+.shadow {
+	box-shadow: 0 0 10px rgba(0,0,0,0.5)
+}
+
+.well {
+	padding: 20px 50px;
+	color: #000;
+}
+
+.well h2 {
+	color: #333;
+}
+
+.well span {
+	color: #555;
+}
+
+.well .checkbox {
+	margin-top: -15px;
+}
+
+.well button {
+	background-color: #3F51B5;
+	border-color: #283593;
+	color: #fff;
+	padding: 5px;
+	margin-top: 15px;
+}
+
+.well button:hover {
+	background-color: #283593;
+	border-color: #1A237E;
+	color: #fff;
+}
+        .inputexth{
+            margin: 10px;
+        }

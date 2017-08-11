@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>  
+                 <p:messages  globalOnly="true" showDetail="true" showSummary="true" autoUpdate="false"/>  
+                <p:panelGrid columns="2">                   
+                    <p:outputLabel value="Serial:" for="serial" />
+                    <p:inputText id="serial" value="#{controllerMaquina.maquina.serial}" title="Serial" required="true" requiredMessage="The Serial field is required."/>
+                    <p:outputLabel value="Maquina:" for="maquina" />
+                    <p:inputText id="maquina" value="#{controllerMaquina.maquina.maquina}" title="Maquina" required="true" requiredMessage="The Maquina field is required."/>
+                    <p:outputLabel value="Modelo:" for="modelo" />
+                    <p:inputText id="modelo" value="#{controllerMaquina.maquina.modelo}" title="Modelo" />
+                    <p:outputLabel value="Estado:" for="estado" />
+                    <p:inputText id="estado" value="#{controllerMaquina.maquina.estado}" title="Estado" required="true" requiredMessage="The Estado field is required."/>
+                    <p:outputLabel value="UsuarioRegistro:" for="usuarioRegistro" />
+                    <p:selectOneMenu id="usuarioRegistro" value="#{controllerMaquina.usuario.idUsuario}" required="true" requiredMessage="The UsuarioRegistro field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{controllerUsuario.listarUsuarios()}" var="usu" itemLabel="#{usu.nombreCompleto}" itemValue="#{usu.idUsuario}"/>
+                    </p:selectOneMenu>
+                    <p:outputLabel value="CodTipo:" for="codTipo" />
+                    <p:selectOneMenu id="codTipo" value="#{controllerMaquina.tipoMaquina.idTipoMaquina}" required="true" requiredMessage="The CodTipo field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{controllerTipoMaquina.listarMaquinas()}" var="maq" itemLabel="#{maq.tipo}" itemValue="#{maq.idTipoMaquina}"/>
+                    </p:selectOneMenu>
+                    <h:outputLabel value="" for="vacio" />
+                    <h:commandButton id="vacio" value="Registrar" action="#{controllerMaquina.crearMaquina()}" class="btn btn-primary"  ></h:commandButton>
+                </p:panelGrid>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form enctype="multipart/form-data">
+                <!--sumary y detail-->
+                <p:messages id="mensajeinput" autoUpdate="false" ></p:messages>
+                <p:messages  globalOnly="true" showDetail="true" showSummary="true" autoUpdate="true"/>                                                    
+                <p:panelGrid columns="2">   
+                    <h:outputText value="KeyFilter with regEx on a p:inputText"/>   
+                    <p:inputText id="text1">
+                        <p:keyFilter regEx="/[ABC]/i"/>
+                    </p:inputText>    
+                    <p:outputLabel value="IdUsuario:" for="idUsuario" />
+                    <p:inputText  id="idUsuario" value="#{controllerUsuario.usuario.idUsuario}" validatorMessage="solo numeros" maxlength="11" title="IdUsuario" required="true" requiredMessage="La cedula es requirida." >
+                        <f:validateRegex pattern="^\+?\d{1s,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$"></f:validateRegex>
+                    </p:inputText>                                                    
+
+                    <p:outputLabel value="PmrNombre:" for="pmrNombre" />
+                    <p:inputText id="pmrNombre" value="#{controllerUsuario.usuario.pmrNombre}" maxlength="15" title="PmrNombre" required="true" requiredMessage="El PmrNombre es requirido." validatorMessage="Formato Primer Nombre invalido. Sin numeros">
+                        <!--<f:validateRegex pattern="[A-Z][a-z]+( [A-Z][a-z]+)?"></f:validateRegex>-->
+                        <!--<p:keyFilter regEx="/[ABC]/i"/>-->
+
+                    </p:inputText>                                                      
+                    <p:outputLabel value="SgdNombre:" for="sgdNombre" />
+                    <p:inputText id="sgdNombre" value="#{controllerUsuario.usuario.sgdNombre}" maxlength="15"  title="SgdNombre" >
+                        <!--<f:validateRegex pattern="[A-Z][a-z]+( [A-Z][a-z]+)?"></f:validateRegex>-->
+                    </p:inputText>
+
+                    <p:outputLabel value="PmrApellido:" for="pmrApellido" />                                                       
+                    <p:inputText id="pmrApellido" value="#{controllerUsuario.usuario.pmrApellido}" maxlength="15" title="PmrApellido" required="true" requiredMessage="El Primer Apellido es requirido." validatorMessage="Formato Primer Apellido invalido. Sin numeros">
+                        <!--<f:validateRegex pattern="[A-Z][a-z]+( [A-Z][a-z]+)?"></f:validateRegex>-->
+                    </p:inputText> 
+
+                    <p:outputLabel value="SgdApellido:" for="sgdApellido" />                                                                                                                                                                            
+                    <p:inputText id="sgdApellido" value="#{controllerUsuario.usuario.sgdApellido}" maxlength="15" title="SgdApellido"  required="true" requiredMessage="El Segundo Apellido es requirido."  validatorMessage="Formato Segundo Apellido invalido. Sin numeros">
+                        <!--<f:validateRegex pattern="[A-Z][a-z]+( [A-Z][a-z]+)?"></f:validateRegex>-->
+                    </p:inputText>
+                    <p:outputLabel value="Alias" for="nombreCompleto" />
+                    <p:inputText id="nombreCompleto" value="#{controllerUsuario.usuario.nombreCompleto}" maxlength="45" title="NombreCompleto" validatorMessage="Formato Alias invalido.¡¡No digite números!!" required="true" requiredMessage="El Alias es requirido."> 
+                        <!--                                                            <f:validateRegex pattern="[A-Z][a-z]+( [A-Z][a-z]+)?"></f:validateRegex>-->
+
+                    </p:inputText>
+                    <p:outputLabel value="Estado:" for="Estado" />                                                    
+                    <h:selectOneMenu id="Estado" class="form-control" value="#{controllerUsuario.usuario.estado}" title="Estado" required="true" requiredMessage="El Estado es requirido.">
+                        <f:selectItem itemValue = "A" itemLabel = "Activo" /> 
+                        <!-- <f:selectItem itemValue = "I" itemLabel = "Inactivo" /> -->
+                    </h:selectOneMenu> 
+
+                    <p:outputLabel value="Clave:" for="clave" />
+                    <p:password id="clave" value="#{controllerUsuario.usuario.clave}" maxlength="6" title="Clave"  feedback="true" promptLabel="Ingrese una clave"  weakLabel="Débil" strongLabel="Fuerte" goodLabel="Bueno" required="true" requiredMessage="La clave es requirida."/>
+
+
+                    <p:outputLabel value="Correo:" for="correo" />
+                    <p:inputText id="correo" value="#{controllerUsuario.usuario.correo}"  maxlength="45" title="Correo" required="true" requiredMessage="El Correo es requirido." validatorMessage="Formato email invalido. Ejemplo@hotmail.com "> 
+                        <f:validateRegex
+                            pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                    </p:inputText>
+                    <p:outputLabel value="FotoCedula:" for="fotoCedula" />
+
+                    <p:inputText id="fotoCedula" disabled="true" value="#{controllerUsuario.usuario.fotoCedula}" title="FotoCedula" />
+
+
+                    <p:outputLabel value="CodCargo:" for="codCargo" />
+                    <h:selectOneMenu id="codCargo" value="#{controllerUsuario.cargo.idCargo}" title="CodCargo" required="true" requiredMessage="El Cargo es requerido." class="form-control">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{controllerCargo.listarCargos()}" var="car" itemLabel="#{car.cargo}" itemValue="#{car.idCargo}"/>
+                    </h:selectOneMenu>
+
+                    <h:outputLabel value="" for="vacio" class="inputexth"/>
+                    <h:commandButton id="vacio" value="Registrar" action="#{controllerUsuario.registrarUsuario()}" class="btn btn-primary" onclick="alert('¿Estas seguro?');" ></h:commandButton>
+                </p:panelGrid>   
+                <h:outputText value="#{controllerUsuario.init()}" escape="false"></h:outputText>
+                    #{controllerUsuario.alerta()}
+                <h:commandButton value="sweet" action="#{controllerUsuario.alerta()}" ></h:commandButton>
+            </h:form>
+</f:view>
+    </h:body>
+</html>
+

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>SICS</title>
+
+	<!-- Metadatos -->
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="description" content="Sistema de Información">
+	<meta name="keywords" content="html5, css3, diseño web">
+	
+	<!-- Estilos -->
+	<link rel="shortcut icon" href="imgs/Favicon/FAVICON_70X74-SICS9.png">
+	<link rel="stylesheet" href="css/estilos_admin.css">
+	<link rel="stylesheet" href="css/jumbo.css">
+	<link rel="stylesheet" href="css/fuentes-mod.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="stylesheet" href="css/sweetalert.css">
+
+
+<!-- SCRIPTS -->
+		
+		<!-- funciona para la barra de navegacion -->
+  		<script src="js/jquery.min.js"></script>
+  		<script src="js/bootstrap.min.js"></script>
+  		<script src="js/sweetalert.min.js"></script>
+  		<script src="js/mod_admin.js"></script>
+  		<script src="js/dist/jquery.min.js"></script>  
+  		<script src="js/dist/validCampoFranz.js"></script>
+
+	<script type="text/javascript">
+            $(function(){
+                //Para escribir solo letras
+                $('.inputLetras').validCampoFranz(' abcdefghijklmnñopqrstuvwxyzáéiou');
+
+                //Para escribir solo numeros    
+                $('.inputNumeros').validCampoFranz('0123456789');    
+            });
+        </script> 
+	</head>
+<body>
+	<noscript>
+  		<p>Bienvenido a Mi Sitio</p>
+  		<p>La página que estás viendo requiere para su funcionamiento el uso de JavaScript. 
+		Si lo has deshabilitado intencionadamente, por favor vuelve a activarlo.</p>
+	</noscript>
+
+ <!-- *************   CABEZOTE  ***************** -->
+	<section class="row container-fluid banner">
+		<div class="col-sx-12 col-sm-12 col-md-12 col-lg-12 extra-padding">
+					
+					<section class="row container-fluid">
+			<div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+				<section class="row">
+					<!-- ++++++++++++++++    2. LOGOTIPO     +++++++++++++++++ -->
+					<div class="col-sx-3 col-sm-3 col-md-3 col-lg-3 extra-padding">
+						
+						<img src="imgs/logo.png" class="img-responsive" alt="Imagen responsive">
+							
+					</div>
+					<div class="col-sx-1 col-sm-1 col-md-1 col-lg-1 extra-padding">
+					</div>
+					<!-- ++++++++++++++++    3. TITULO     ++++++++++++++++++ -->
+					<div class="col-sx-8 col-sm-8 col-md-8 col-lg-8 extra-padding  stroke1">
+						<table>
+							<tr>
+							<!-- 	<td></td><td>SISTEMA  DE  INFORMACIÓN  PARA</td> -->
+							</tr> 
+							<tr> 
+								<img class="img-responsive" src="imgs/Tipografia_sics.png" alt=""> 
+								<!-- <td></td><td>EL CONTROL Y SEGUIMIENTO  DE  LA PRODUCCIÓN</td> -->	
+							</tr>
+						</table>  						  
+					</div>
+				</section>
+			</div>
+		</section>	
+
+				</div>
+		</section>
+			<!-- ::::::::::    Fin CABEZOTE   ::::::::::::: -->
+
+<section class="row barra">
+	<div class="col-sx-2 col-sm-2 col-md-2 col-lg-2 container-fluid"></div>
+	 <!-- .......................menu 1 ....................... --> 
+	<div class="col-sx-1 col-sm-1 col-md-1 col-lg-1 activo text-center">	
+	    <!-- menu #1 -->
+		<div class="menu">
+		
+			<li>
+				<a href="mod_administrador.html" class="tipoActiva">
+						<i class="icon-male icon tg"></i>
+					    Gestionar usuarios					
+				</a>
+			</li>
+
+		</div>				
+	</div>
+      <!-- .......................menu 2 ....................... --> 
+	<div class="col-sx-1 col-sm-1 col-md-1 col-lg-1 border text-center">	
+	    <!-- menu #1 -->
+		<div class="menu">
+			<li>
+				<a href="ad_materiales.html">
+						<i class="icon-list-alt tg"></i>
+						Gestionar materiales
+				</a>
+			</li>
+		</div>				
+	</div>
+
+	<div class="col-sx-1 col-sm-1 col-md-1 col-lg-1 border text-center">	
+	    <!-- menu #1 -->
+		<div class="menu">
+			<li>
+				<a href="ad_prod.html">
+						<i class="icon-cog tg"></i>
+						Gestionar producción
+				</a>
+			</li>
+		</div>				
+	</div>
+	<div class="col-sx-1 col-sm-1 col-md-1 col-lg-1"></div>
+	<div class="col-sx-1 col-sm-1 col-md-1 col-lg-1"></div>
+	<div class="col-sx-1 col-sm-1 col-md-1 col-lg-1"></div>
+	<div class="col-sx-1 col-sm-1 col-md-1 col-lg-1"></div>
+	<div class="col-sx-1 col-sm-1 col-md-1 col-lg-1"></div>
+	<div class="col-sx-2 col-sm-2 col-md-2 col-lg-2"></div>
+</section>
+
+          <!-- XXXXXXXXX  F I N   M E N U S XXXXXXXXXXX-->
+
+ <section class="row">
+	<div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+
+		<section class="row" style="padding: 10px;"></section>
+		<!-- M E N U  - D E -  U S U A R I O -->
+			<div class="col-sx-2 col-sm-2 col-md-2 col-lg-2 container-fluid">
+				<div class="thumbnail">
+					<h2 class="text-center ">Usuario</h2>
+						<img src="imgs/modulos/david.jpg" alt="foto" class="img-thumbnail">
+				</div>
+				<div class="sidebar-nav">
+				    <div class="well" style="width:100%; padding: 8px 0; margin:2px;">
+						<ul class="nav nav-list"> 
+						  <li class="nav-header active text-center bordMod">Rol:  Administrador</li>  
+
+						  <li class="active"><a href="mod_administrador.html" class="activoMenu"><i class="icon-home"></i> Inicio</a></li>
+						  <li><a href="mod_adm_ajuste.html" class="borderMenu"><i class="glyphicon glyphicon-check"></i> Ajustes</a></li>
+				          <li class="divider"></li>
+				           <li><a href="mod_adm_calendar.html" class="borderMenu"><i class="glyphicon glyphicon-calendar"></i> Calendario</a></li>
+						  <li><a href="index.html"><i class="icon-share"></i> Cerrar sesión</a></li>
+						</ul>
+					</div>				
+				</div>
+				<!-- class="activoMenu // Decora el ITEM de menu como ACTIVO"  
+				     class="borderMenu" //  Decora el ITEM de menu como ESTANDARD
+				     class="bordMod" // Decora el texto del ROL-->
+			</div> <!-- F I N - M E N U - D E - U S U A R I O -->
+
+		<div class="col-sx-10 col-sm-10 col-md-10 col-lg-10"><!-- contenedor de panel -->		
+			  <div class="panel panel-default" style="background-color:#ede7e7;">
+				  	<div class="panel-cuenta">
+				    	<!-- <i class="icon-user"></i> -->
+		      			<h4><span class="icon-user"> su cuenta</span></h4>
+				  	</div>
+               		<!-- ............................TABS PANEL ............................. -->
+					<div class="panel-footer" style="background-color: white">
+						<ul class="nav nav-tabs">
+							<li class="active"><a data-toggle="tab" href="#home">Inicio</a></li>
+						  	<li><a data-toggle="tab" href="#menu1">Registrar usuario</a></li>
+						 	<li><a data-toggle="tab" href="#menu2">Modificar usuario</a></li>
+						</ul> 
+					</div>
+					<!-- ........................................... -->
+
+					<div class="tab-content" style="background-color: white;">
+						<!-- .........|_| P A N E L -  0................ -->
+						 <div id="home" class="tab-pane fade in active">
+						 	<section class="row">
+							 <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+						    	<h3>  Bienvenido a SICS</h3>
+						   		 <div class="padding-vacio-txt"></div>
+						   		<img src="imgs/fondo.png" alt="" class="images img-thumbnail">
+						   	 </div>
+						   </section>
+						 </div>
+						<!-- ........................................... -->
+
+						 <!-- |_| P A N E L - 1 -->
+						  <div id="menu1" class="tab-pane fade">
+							 <section class="row">
+								<div class="col-sx-3 col-sm-3 col-md-3 col-lg-3"></div>
+							 	<div class="col-sx-6 col-sm-6 col-md-6 col-lg-6">
+								<div class="decFormTitle">
+						    		<h3 class="text-center">Registrar usuarios Quala</h3>
+						   			<div class="padding-vacio-txt"></div>
+								</div>	
+	  <!-- .................. contenido .................... -->	
+								<form action="" method="post" class="form-register">
+									<div class="decForm">	
+										<table class="table">
+										<tr>
+											<td>	
+												<div class="form-group">
+													<label for="nombres">Primer Nombre</label>
+													<input type="text" id="nombre1" class="inputLetras" name="nombres" value="" placeholder="Primer Nombre" minlength="3" maxlength="25" required="" tabindex="1">
+												</div>
+											</td>
+
+											<td>
+												<div class="form-group">
+													<label for="nombres">Segundo Nombre</label>
+													<input type="text" id="nombre2" class="inputLetras" name="nombres" value="" placeholder="Segundo Nombre
+													" minlength="3" maxlength="25" required="" tabindex="2">
+												</div>
+											</td>
+										</tr>
+
+										<tr>
+											<td>	
+												<div class="form-group">
+													<label for="apellido1">Primer Apellido</label>
+													<input type="text" id="apellido1" class="inputLetras" name="apellido1" value="" placeholder="Primer Apellido" minlength="3" maxlength="25" required="" tabindex="3">
+												</div>
+											</td>
+
+											<td>
+												<div class="form-group">
+													<label for="apellido2">Segundo Apellido</label>
+													<input type="text" id="apellido2" class="inputLetras" name="apellido2" value="" placeholder="Segundo Apellido" minlength="3" maxlength="30" required="" tabindex="4">
+												</div>
+											</td>
+										</tr>
+										
+										<tr>
+											<td>	
+												<div class="form-group">
+													<label for="identificacion">Cedula</label>
+													<input type="text" id="cedula" class="inputNumeros" name="identificacion" value="" placeholder="identificacion" minlength="3" maxlength="10" required="" tabindex="5">
+												</div>
+											</td>
+
+											<td>
+											<div class="form-group">
+												<label for="correo">Correo</label>
+												<input type="email" id="email" class="inputItem" name="correo" value="" placeholder="ivduque@sics.co" minlength="3" maxlength="30" required="" tabindex="6" pattern="[a-zA-Z0-9_]+()*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}">
+											</div>
+											</td>
+										</tr>
+										
+										<tr>
+											<td>
+												<div class="form-group">
+													<label for="ejemplo_email_1">Rol</label>
+													<select name="estado" class="form-control" id="rol" tabindex="7" value="" name="rol">
+														<option value="null"></option>
+														<option value="admin">Administrador</option>
+														<option value="gest">Gestor</option>
+														<option value="lid">lider</option>
+														<option value="plan">Planeador</option>
+													</select>	
+													<div class="valorSeleccionado"></div>			  
+												</div>
+											</td>
+											<td>
+												<div class="form-group">
+													<label for="ejemplo_email_1">Estado</label>
+													<select name="estado" class="form-control" id="estado" tabindex="8" value="" name="estado">
+														<option value="null"></option>
+														<option value="Activo">(A) Activo</option>
+														<option value="Inactivo">(I) Inactivo</option>
+													</select>				  
+												</div>
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<div class="form-group">
+													<label for="clave">Contraseña</label>
+													<input type="password" id="clave" class="inputItem" name="clave" value="" placeholder="&#128272;Clave" minlength="3" maxlength="20" required="" tabindex="9">
+												</div>
+											</td>
+
+											<td>
+												<div class="form-group">
+													<label for="ejemplo_email_1">Cargo</label>
+													<select name="estado" class="form-control" id="cargo" tabindex="10" name="cargo">
+														<option value="Operario">Operario</option>
+														<option value="Digitador">Digitador</option>
+														<option value="G.materiales">Gestor de materiales</option>
+														<option value="G.calidad">Gestor de calidad</option>
+														<option value="Lider">Lider de porducción</option>
+														<option value="Coordinador">Coordinador de porducción</option>
+														<option value="Jefe">Jefe de planta</option>
+														<option value="Planeador">Planeador</option>
+													</select>				  
+												</div>
+											</td>
+										</tr>
+
+										<tr>
+											<td colspan="2">
+												<div class="form-group">
+													<button class="btn btn-primary pull-right" id="button" name="button" type="submit" tabindex="11" href="#button"> Enviar </button>
+												</div>
+											</td>
+										</tr>
+										</table>
+									</div>	
+								</form>
+  	 <!-- ................................................................. -->
+								</div><!-- fin div col md6 -->	
+							<div class="col-sx-3 col-sm-3 col-md-3 col-lg-3"></div>		
+   
+							</section>	<!-- fin de fila contenedora -->	
+						  </div><!-- fin P A N E L - 1 -->
+
+						<!-- |_| P A N E L - 2 -->
+						  <div id="menu2" class="tab-pane fade">					   
+							 <section class="row">
+								<div class="col-sx-3 col-sm-3 col-md-3 col-lg-3"></div>
+							 	<div class="col-sx-6 col-sm-6 col-md-6 col-lg-6">
+								<div class="decFormTitle">
+						    		<h3 class="text-center">Modificar usuarios Quala</h3>
+						   			<div class="padding-vacio-txt"></div>
+								</div>	
+
+								<form action="" method="post" class="form-register">
+									<div class="decForm">	
+										<table class="table">
+										<tr>
+											<td>	
+												<div class="form-group">
+													<label for="nombres">Primer Nombre</label>
+													<input type="text" id="nombre1" class="inputLetras" name="nombres" value="" placeholder="Primer Nombre" minlength="3" maxlength="25" required="" tabindex="1">
+												</div>
+											</td>
+
+											<td>
+												<div class="form-group">
+													<label for="nombres">Segundo Nombre</label>
+													<input type="text" id="nombre2" class="inputLetras" name="nombres" value="" placeholder="Segundo Nombre
+													" minlength="3" maxlength="25" required="" tabindex="2">
+												</div>
+											</td>
+										</tr>
+
+										<tr>
+											<td>	
+												<div class="form-group">
+													<label for="apellido1">Primer Apellido</label>
+													<input type="text" id="apellido1" class="inputLetras" name="apellido1" value="" placeholder="Primer Apellido" minlength="3" maxlength="25" required="" tabindex="3">
+												</div>
+											</td>
+
+											<td>
+												<div class="form-group">
+													<label for="apellido2">Segundo Apellido</label>
+													<input type="text" id="apellido2" class="inputLetras" name="apellido2" value="" placeholder="Segundo Apellido" minlength="3" maxlength="30" required="" tabindex="4">
+												</div>
+											</td>
+										</tr>
+										
+										<tr>
+											<td>	
+												<div class="form-group">
+													<label for="identificacion">Cedula</label>
+													<input type="text" id="idUsuario" class="inputNumeros" name="identificacion" value="" placeholder="identificacion" minlength="3" maxlength="10" required="" tabindex="5">
+												</div>
+											</td>
+
+											<td>
+											<div class="form-group">
+												<label for="correo">Correo</label>
+												<input type="email" id="email" class="inputItem" name="correo" value="" placeholder="ivduque@sics.co" minlength="3" maxlength="30" required="" tabindex="6" pattern="[a-zA-Z0-9_]+()*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}">
+											</div>
+											</td>
+										</tr>
+										
+										<tr>
+											<td>
+												<div class="form-group">
+													<label for="ejemplo_email_1">Rol</label>
+													<select name="estado" class="form-control" id="rol" tabindex="7" value="" name="rol">
+														<option value="null"></option>
+														<option value="admin">Administrador</option>
+														<option value="gest">Gestor</option>
+														<option value="lid">lider</option>
+														<option value="plan">Planeador</option>
+													</select>	
+													<div class="valorSeleccionado"></div>			  
+												</div>
+											</td>
+											<td>
+												<div class="form-group">
+													<label for="ejemplo_email_1">Estado</label>
+													<select name="estado" class="form-control" id="estado" tabindex="8" value="" name="estado">
+														<option value="null"></option>
+														<option value="Activo">(A) Activo</option>
+														<option value="Inactivo">(I) Inactivo</option>
+													</select>				  
+												</div>
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<div class="form-group">
+													<label for="clave">Contraseña</label>
+													<input type="password" id="clave" class="inputItem" name="clave" value="" placeholder="&#128272;Clave" minlength="3" maxlength="20" required="" tabindex="9">
+												</div>
+											</td>
+
+											<td>
+												<div class="form-group">
+													<label for="ejemplo_email_1">Cargo</label>
+													<select name="estado" class="form-control" id="cargo" tabindex="10" name="cargo">
+														<option value="Operario">Operario</option>
+														<option value="Digitador">Digitador</option>
+														<option value="G.materiales">Gestor de materiales</option>
+														<option value="G.calidad">Gestor de calidad</option>
+														<option value="Lider">Lider de porducción</option>
+														<option value="Coordinador">Coordinador de porducción</option>
+														<option value="Jefe">Jefe de planta</option>
+														<option value="Planeador">Planeador</option>
+													</select>				  
+												</div>
+											</td>
+										</tr>
+
+										<tr>
+											<td colspan="2">
+												<div class="form-group">
+													<button class="btn btn-primary pull-left" id="btnConsult" name="button" type="submit" tabindex="11" href="#button"> Consultar </button>
+
+													
+										   		      <button class="btn btn-success pull-right" id="btnUpdate" type="submit" name="btnUpdate" tabindex="13" href="#button">Actualizar</button>
+										   
+										   		      <button class="btn btn-danger pull-right"  id="btnDelete" name="btnDelete" type="submit"  tabindex="12" href="#button">Eliminar</button>
+										   		 </div>
+											</td>
+										</tr>
+										</table>
+									</div>	
+								</form>
+  	 <!-- ................................................................. -->
+										
+
+									</div><!-- fin div col md6 -->	
+
+											<div class="col-sx-3 col-sm-3 col-md-3 col-lg-3">
+												
+											</div>							
+									</section>	<!-- fin de fila contenedora -->
+						 		</div><!-- fin P A N E L - 2 -->
+						</div><!-- fin T A B - C O N T E N T-->
+				</div><!-- FIN  panel-default"-->
+		</div><!-- FIN  contenedor de panel -->
+	</div>
+ </section>
+
+	</div> <!-- fin Contendor - contenido-->
+	<!-- url menu http://bootsnipp.com/snippets/featured/admin-sidebar-menu -->
+</section>
+
+<!-- .......................... fin interfaz ..........................-->
+
+<footer>
+	<section class="row contenedor-footer">
+		<div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+		<section class="row container-fluid copyright">
+			<div class="col-sx-12 col-sm-12 col-md-12 col-lg-12 text-center">
+				<section class="row container-fluid">
+						<h5 class="titulo-footer"> Derechos reservados</h5>
+						<h3 class="color">©  2016 Quala  SA</h3>
+						<h6> Este sitio Web está optimizado para ser visualizado en navegadores Internet Explorer 9 o superior, Chrome, Safari y Firefox.</h6>
+				
+				</section>
+			</div>
+		</section>
+				<section class="row container-fluid cont-redes"> <!-- INICIO RED SOCIAL-->
+					<div class="col-mx-12 col-sm-12 col-md-12 col-lg-12">
+						<section class="row container-fluid">
+
+							<div class="col-sx-4 col-sm-4 col-md-4 col-lg-4"></div>
+
+							<div class="col-sx-4 col-sm-4 col-md-4 col-lg-4">
+								<table>
+									<tr>
+										<td>
+										<a href="https:///www.facebook.com/fdquala/" target="_blank"><img src="icon/facebook-icon.png" class="icon img-responsive" alt="face"></a>
+										</td>
+										
+										<td>
+										<a href="https://www.linkedin.com/company/4093934?trk=tyah&trkInfo=tarId%3A1415646509356%2Ctas%3AQuala%2Cidx%3A2-1-6" target="_blank"><img src="icon/linkedin-icon.png" class="icon img-responsive" alt="linkedin"></a>
+										</td>
+
+										<td>
+										<a href="https://www.instagram.com/qualacolombia/" target="_blank"><img src="icon/instagram-icon.png" class="icon img-responsive" alt="instagram"></a>
+										</td>
+
+										<td>
+										<a href="https://www.youtube.com/user/QualaSA" target="_blank"><img src="icon/Youtube-icon.png" class="icon img-responsive" alt="youtube"></a>
+										</td>
+									</tr>
+								</table>							
+							</div>
+						
+							<div class="col-sx-4 col-sm-4 col-md-4 col-lg-4"></div>
+
+						</section>
+					</div>
+			</section> <!-- FIN REDES SOCIALES -->					
+		</div>
+	</section> <!-- ***************  E. PIE DE PAGINA  ************** -->
+</footer>
+</body>
+</html>

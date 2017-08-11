@@ -1,0 +1,27 @@
+.img-dw{
+	padding: 20px;
+	width: 70%;
+	height: 70%;
+	border-radius: 27px 0px 31px 0px;
+	-moz-border-radius: 27px 0px 31px 0px;
+	-webkit-border-radius: 27px 0px 31px 0px;
+	border: 4px solid #dddcde;
+}
+.fondo_mate{
+	background-image: url(../imgs/fondo_materias.png);
+	background-size: 100%;
+}
+.btn_descarga{
+	background-image: url(../icon/icon128x128.png);
+	border: solid red 2px;
+	width: 50%;
+	height: 14px;
+}
+.div-vacio{
+	padding:20px;
+	height: 10px;
+	width: 20%;
+}
+.margin-btn{
+	
+}
